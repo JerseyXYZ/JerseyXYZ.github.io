@@ -6,9 +6,7 @@
 <title>J4F</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -20,21 +18,12 @@ body {
   align-items: center;
   padding: 25px;
 
-  /* Schwarze moderne Struktur */
   background:
-    radial-gradient(circle at 15% 20%,
-      rgba(150, 0, 20, .22),
-      transparent 35%),
-    radial-gradient(circle at 90% 80%,
-      rgba(110, 0, 15, .18),
-      transparent 40%),
-    linear-gradient(135deg,
-      #050505 0%,
-      #111 45%,
-      #050505 100%);
+    radial-gradient(circle at 15% 20%, rgba(150,0,20,.22), transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(110,0,15,.18), transparent 40%),
+    linear-gradient(135deg, #050505 0%, #111 45%, #050505 100%);
 }
 
-/* feine Textur */
 body::before {
   content: "";
   position: fixed;
@@ -56,46 +45,32 @@ body::before {
   width: 100%;
   max-width: 520px;
   padding: 46px 28px 38px;
-
   background: rgba(15,15,15,.72);
   backdrop-filter: blur(12px);
-
   border: 1px solid rgba(180,20,35,.28);
   border-radius: 26px;
-
   box-shadow:
     0 25px 70px rgba(0,0,0,.65),
     0 0 45px rgba(130,0,20,.10);
-
   text-align: center;
 }
 
-/* kleine rote Linie */
 .accent {
   width: 55px;
   height: 3px;
   margin: 0 auto 30px;
   border-radius: 10px;
-
-  background: linear-gradient(
-    90deg,
-    #5d000c,
-    #d51b32,
-    #5d000c
-  );
-
+  background: linear-gradient(90deg,#5d000c,#d51b32,#5d000c);
   box-shadow: 0 0 14px rgba(220,20,45,.45);
 }
 
 h1 {
   margin: 0 0 24px;
-  font-size: clamp(1.8rem, 7vw, 2.7rem);
-  font-weight: 300;
-  letter-spacing: -.03em;
+  font-size: clamp(1.8rem,7vw,2.7rem);
+  font-weight: 400;
 }
 
 h1 strong {
-  font-weight: 650;
   color: #e21c35;
 }
 
@@ -105,6 +80,10 @@ h1 strong {
   font-size: 1.08rem;
   line-height: 1.7;
   color: #d5d5d5;
+}
+
+.text p {
+  margin: 0 0 1em;
 }
 
 .like {
@@ -127,7 +106,6 @@ h1 strong {
   letter-spacing: .28em;
   color: #777;
 }
-
 </style>
 </head>
 
@@ -137,14 +115,10 @@ h1 strong {
 
   <div class="accent"></div>
 
-  <h1>
-    Das Leben ist <strong>zu kurz …</strong>
-  </h1>
+  <h1 id="title">...</h1>
 
-  <div class="text">
-    Hier kommt ihr persönlicher Text hin.<br><br>
-    Ein kleiner Gedanke für den Menschen,
-    der gerade hinter ihr steht.
+  <div class="text" id="text">
+    ...
   </div>
 
   <div class="like">
@@ -156,11 +130,26 @@ h1 strong {
     </iframe>
   </div>
 
-  <div class="footer">
-    J4F
-  </div>
+  <div class="footer">J4F</div>
 
 </div>
+
+<script>
+fetch('./content.json?nocache=' + Date.now())
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('title').textContent = data.title;
+
+    // Rich-Text-Inhalt von Pages CMS anzeigen
+    document.getElementById('text').innerHTML = data.text;
+  })
+  .catch(error => {
+    document.getElementById('title').textContent = 'J4F';
+    document.getElementById('text').textContent =
+      'Der Inhalt konnte gerade nicht geladen werden.';
+    console.error(error);
+  });
+</script>
 
 </body>
 </html>
