@@ -4,10 +4,22 @@ content:
     type: file
     path: 2/content.json
     fields:
+      - name: headline
+        label: Kleine Überschrift
+        type: string
+
       - name: title
-        label: Überschrift
+        label: Große Überschrift
         type: string
 
       - name: text
-        label: Mein Text
-        type: rich-text
+        label: Haupttext
+        type: text
+
+      - name: greeting
+        label: Grußzeile
+        type: string
+
+      - name: ps
+        label: PS
+        type: string
