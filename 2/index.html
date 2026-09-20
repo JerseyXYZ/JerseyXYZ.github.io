@@ -17,14 +17,12 @@ body {
   align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: #f5f5f5;
-
   background:
     radial-gradient(circle at 5% 10%, rgba(125,0,20,.30), transparent 32%),
     radial-gradient(circle at 95% 90%, rgba(160,0,25,.22), transparent 34%),
     linear-gradient(145deg, #050505, #101010 55%, #070707);
 }
 
-/* dezente Struktur */
 body::before {
   content: "";
   position: fixed;
@@ -48,23 +46,14 @@ body::before {
   padding: 38px 25px 30px;
   overflow: hidden;
   text-align: center;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(18,18,18,.96),
-      rgba(7,7,7,.96)
-    );
-
+  background: linear-gradient(145deg, rgba(18,18,18,.96), rgba(7,7,7,.96));
   border: 1px solid rgba(205,25,48,.35);
   border-radius: 25px;
-
   box-shadow:
     0 24px 65px rgba(0,0,0,.65),
     0 0 35px rgba(170,0,25,.08);
 }
 
-/* roter Lichtakzent oben */
 .card::before {
   content: "";
   position: absolute;
@@ -72,14 +61,7 @@ body::before {
   left: 25%;
   width: 50%;
   height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #ff1f42,
-    transparent
-  );
-
+  background: linear-gradient(90deg, transparent, #ff1f42, transparent);
   box-shadow: 0 0 18px rgba(255,20,55,.55);
 }
 
@@ -105,7 +87,6 @@ body::before {
 h1 {
   max-width: 410px;
   margin: 20px auto 22px;
-
   font-size: clamp(2rem, 7vw, 2.75rem);
   line-height: 1.08;
   font-weight: 300;
@@ -115,11 +96,9 @@ h1 {
 .text {
   max-width: 390px;
   margin: 0 auto;
-
   color: #e1e1e1;
   font-size: 1.05rem;
   line-height: 1.65;
-
   white-space: pre-line;
 }
 
@@ -140,7 +119,6 @@ h1 {
 .ps {
   max-width: 390px;
   margin: 14px auto 0;
-
   color: #ddd;
   font-size: .92rem;
   line-height: 1.5;
@@ -151,20 +129,26 @@ h1 {
   font-weight: 700;
 }
 
-.like-area {
+/* Statistik */
+
+.stats {
   position: relative;
   margin-top: 27px;
-  padding-top: 22px;
+  padding-top: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  flex-wrap: wrap;
 }
 
-.like-area::before {
+.stats::before {
   content: "";
   position: absolute;
   top: 0;
   left: 25%;
   right: 25%;
   height: 1px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -173,24 +157,46 @@ h1 {
   );
 }
 
-.like {
-  display: flex;
-  justify-content: center;
+.like-button,
+.views {
+  min-height: 44px;
+  padding: 10px 15px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.045);
+  color: #ddd;
+  font: inherit;
+  font-size: .88rem;
+  white-space: nowrap;
 }
 
-.like iframe {
-  width: 428px;
-  max-width: 100%;
-  height: 52px;
-  border: 0;
-  background: transparent;
+.like-button {
+  cursor: pointer;
+  transition: .2s ease;
 }
 
-/* Smartphone */
+.like-button:hover {
+  border-color: rgba(241,38,67,.55);
+  background: rgba(241,38,67,.10);
+}
+
+.like-button.liked {
+  color: #fff;
+  border-color: rgba(241,38,67,.55);
+  background: rgba(241,38,67,.14);
+}
+
+.like-button:disabled {
+  cursor: default;
+}
+
+.stat-number {
+  font-weight: 700;
+  color: #fff;
+}
+
 @media (max-width: 430px) {
-  body {
-    padding: 14px;
-  }
+  body { padding: 14px; }
 
   .card {
     padding: 32px 19px 25px;
@@ -207,12 +213,18 @@ h1 {
     font-size: clamp(2rem, 10vw, 2.5rem);
   }
 
-  .text {
-    font-size: 1rem;
+  .text { font-size: 1rem; }
+
+  .message-end { margin-top: 23px; }
+
+  .stats {
+    gap: 8px;
   }
 
-  .message-end {
-    margin-top: 23px;
+  .like-button,
+  .views {
+    font-size: .82rem;
+    padding: 9px 12px;
   }
 }
 </style>
@@ -223,49 +235,41 @@ h1 {
 <main class="card">
 
   <div id="headline" class="headline"></div>
-
   <h1 id="title"></h1>
-
   <div id="text" class="text"></div>
 
   <div class="message-end"></div>
 
   <div id="greeting" class="greeting"></div>
-
   <div id="ps" class="ps"></div>
 
-  <div class="like-area">
-    <div class="like">
-      <iframe
-        src="https://api.nice.sbs/e/n_0kiIXQNT2CsX?theme=mono-dark&size=xl"
-        scrolling="no"
-        allowtransparency="true"
-        title="Danke">
-      </iframe>
+  <div class="stats">
+
+    <button id="likeButton" class="like-button" type="button">
+      ❤️ <span id="likes" class="stat-number">0</span> Danke
+    </button>
+
+    <div class="views">
+      👀 <span id="views" class="stat-number">0</span> Aufrufe
     </div>
+
   </div>
 
 </main>
 
 <script>
+/* ---------- TEXT AUS PAGES CMS ---------- */
+
 fetch("./content.json?v=" + Date.now(), { cache: "no-store" })
   .then(response => {
     if (!response.ok) throw new Error("Inhalt konnte nicht geladen werden.");
     return response.json();
   })
   .then(data => {
-
-    document.getElementById("headline").textContent =
-      data.headline || "";
-
-    document.getElementById("title").textContent =
-      data.title || "";
-
-    document.getElementById("text").textContent =
-      data.text || "";
-
-    document.getElementById("greeting").textContent =
-      data.greeting || "";
+    document.getElementById("headline").textContent = data.headline || "";
+    document.getElementById("title").textContent = data.title || "";
+    document.getElementById("text").textContent = data.text || "";
+    document.getElementById("greeting").textContent = data.greeting || "";
 
     const ps = document.getElementById("ps");
 
@@ -280,10 +284,158 @@ fetch("./content.json?v=" + Date.now(), { cache: "no-store" })
   })
   .catch(error => {
     console.error(error);
-
     document.getElementById("title").textContent =
       "Für die Person hinter mir ❤️";
   });
+
+
+/* ---------- HOODIE STATISTIK ---------- */
+
+const SUPABASE_URL =
+  "https://wbxwzspkoriyjmcbomxn.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_7-e-CafdZaT2CMCDhDH0DQ_qZLKzDVq";
+
+const HOODIE = "hoodie2";
+
+const headers = {
+  "apikey": SUPABASE_KEY,
+  "Authorization": "Bearer " + SUPABASE_KEY,
+  "Content-Type": "application/json"
+};
+
+const likesElement = document.getElementById("likes");
+const viewsElement = document.getElementById("views");
+const likeButton = document.getElementById("likeButton");
+
+
+function showStats(data) {
+  if (!data) return;
+
+  if (typeof data.likes !== "undefined") {
+    likesElement.textContent = data.likes;
+  }
+
+  if (typeof data.views !== "undefined") {
+    viewsElement.textContent = data.views;
+  }
+}
+
+
+/* Seitenaufruf zählen */
+
+async function countView() {
+  try {
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/rpc/hoodie_view",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify({
+          p_hoodie: HOODIE
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Aufruf konnte nicht gezählt werden.");
+    }
+
+    const data = await response.json();
+    showStats(data);
+
+  } catch (error) {
+    console.error("Statistik:", error);
+    loadStats();
+  }
+}
+
+
+/* Aktuelle Zahlen laden */
+
+async function loadStats() {
+  try {
+    const response = await fetch(
+      SUPABASE_URL +
+      "/rest/v1/hoodie_stats?hoodie=eq." +
+      HOODIE +
+      "&select=views,likes",
+      {
+        headers: headers
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Statistik konnte nicht geladen werden.");
+    }
+
+    const data = await response.json();
+
+    if (data.length) {
+      showStats(data[0]);
+    }
+
+  } catch (error) {
+    console.error("Statistik:", error);
+  }
+}
+
+
+/* Like-Status dieses Browsers */
+
+const likeStorageKey = HOODIE + "-liked";
+
+if (localStorage.getItem(likeStorageKey) === "yes") {
+  likeButton.classList.add("liked");
+  likeButton.disabled = true;
+}
+
+
+/* Danke / Like */
+
+likeButton.addEventListener("click", async function () {
+
+  if (localStorage.getItem(likeStorageKey) === "yes") {
+    return;
+  }
+
+  likeButton.disabled = true;
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/rpc/hoodie_like",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify({
+          p_hoodie: HOODIE
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Danke konnte nicht gespeichert werden.");
+    }
+
+    const data = await response.json();
+
+    showStats(data);
+
+    localStorage.setItem(likeStorageKey, "yes");
+    likeButton.classList.add("liked");
+
+  } catch (error) {
+    console.error("Like:", error);
+    likeButton.disabled = false;
+  }
+});
+
+
+/* Beim Öffnen der Seite +1 Aufruf */
+
+countView();
+
 </script>
 
 </body>
