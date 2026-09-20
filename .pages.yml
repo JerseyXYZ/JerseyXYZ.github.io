@@ -1,0 +1,13 @@
+content:
+  - name: page2
+    label: Hoodie 2
+    type: file
+    path: 2/content.json
+    fields:
+      - name: title
+        label: Überschrift
+        type: string
+
+      - name: text
+        label: Mein Text
+        type: rich-text
