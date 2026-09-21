@@ -6,32 +6,29 @@ content:
 
     fields:
 
-      # ─────────────────────────────
       # KLEINE ÜBERSCHRIFT
-      # ─────────────────────────────
-
       - name: headline
-        label: "🟥 KLEINE ÜBERSCHRIFT – Text"
+        label: "━━ 🟥 KLEINE ÜBERSCHRIFT ━━"
         type: string
 
       - name: headlineFont
-        label: "↳ Schriftart"
+        label: "      └─ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: "Modern – klar & schlicht"
+              label: "Modern"
             - value: elegant
-              label: "Elegant – fein & edel"
+              label: "Elegant"
             - value: classic
-              label: "Klassisch – Buchstil"
+              label: "Klassisch"
             - value: handwritten
-              label: "Handschrift – persönlich"
+              label: "Handschrift"
             - value: playful
-              label: "Verspielt – locker"
+              label: "Verspielt"
 
       - name: headlineColor
-        label: "↳ Farbe"
+        label: "      └─ Farbe"
         type: select
         options:
           values:
@@ -53,32 +50,29 @@ content:
               label: "🩶 Grau"
 
 
-      # ─────────────────────────────
       # GROSSE ÜBERSCHRIFT
-      # ─────────────────────────────
-
       - name: title
-        label: "⬜ GROSSE ÜBERSCHRIFT – Text"
+        label: "━━ ⬜ GROSSE ÜBERSCHRIFT ━━"
         type: string
 
       - name: titleFont
-        label: "↳ Schriftart"
+        label: "      └─ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: "Modern – klar & schlicht"
+              label: "Modern"
             - value: elegant
-              label: "Elegant – fein & edel"
+              label: "Elegant"
             - value: classic
-              label: "Klassisch – Buchstil"
+              label: "Klassisch"
             - value: handwritten
-              label: "Handschrift – persönlich"
+              label: "Handschrift"
             - value: playful
-              label: "Verspielt – locker"
+              label: "Verspielt"
 
       - name: titleColor
-        label: "↳ Farbe"
+        label: "      └─ Farbe"
         type: select
         options:
           values:
@@ -100,32 +94,29 @@ content:
               label: "🩶 Grau"
 
 
-      # ─────────────────────────────
       # HAUPTTEXT
-      # ─────────────────────────────
-
       - name: text
-        label: "📝 HAUPTTEXT – Text"
+        label: "━━ 📝 HAUPTTEXT ━━"
         type: text
 
       - name: textFont
-        label: "↳ Schriftart"
+        label: "      └─ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: "Modern – klar & schlicht"
+              label: "Modern"
             - value: elegant
-              label: "Elegant – fein & edel"
+              label: "Elegant"
             - value: classic
-              label: "Klassisch – Buchstil"
+              label: "Klassisch"
             - value: handwritten
-              label: "Handschrift – persönlich"
+              label: "Handschrift"
             - value: playful
-              label: "Verspielt – locker"
+              label: "Verspielt"
 
       - name: textColor
-        label: "↳ Farbe"
+        label: "      └─ Farbe"
         type: select
         options:
           values:
@@ -147,32 +138,29 @@ content:
               label: "🩶 Grau"
 
 
-      # ─────────────────────────────
       # GRUSSZEILE
-      # ─────────────────────────────
-
       - name: greeting
-        label: "👋 GRUSSZEILE – Text"
+        label: "━━ 👋 GRUSSZEILE ━━"
         type: string
 
       - name: greetingFont
-        label: "↳ Schriftart"
+        label: "      └─ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: "Modern – klar & schlicht"
+              label: "Modern"
             - value: elegant
-              label: "Elegant – fein & edel"
+              label: "Elegant"
             - value: classic
-              label: "Klassisch – Buchstil"
+              label: "Klassisch"
             - value: handwritten
-              label: "Handschrift – persönlich"
+              label: "Handschrift"
             - value: playful
-              label: "Verspielt – locker"
+              label: "Verspielt"
 
       - name: greetingColor
-        label: "↳ Farbe"
+        label: "      └─ Farbe"
         type: select
         options:
           values:
@@ -194,32 +182,29 @@ content:
               label: "🩶 Grau"
 
 
-      # ─────────────────────────────
       # PS
-      # ─────────────────────────────
-
       - name: ps
-        label: "❤️ PS – Text"
+        label: "━━ ❤️ PS ━━"
         type: string
 
       - name: psFont
-        label: "↳ Schriftart"
+        label: "      └─ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: "Modern – klar & schlicht"
+              label: "Modern"
             - value: elegant
-              label: "Elegant – fein & edel"
+              label: "Elegant"
             - value: classic
-              label: "Klassisch – Buchstil"
+              label: "Klassisch"
             - value: handwritten
-              label: "Handschrift – persönlich"
+              label: "Handschrift"
             - value: playful
-              label: "Verspielt – locker"
+              label: "Verspielt"
 
       - name: psColor
-        label: "↳ Farbe"
+        label: "      └─ Farbe"
         type: select
         options:
           values:
@@ -241,12 +226,9 @@ content:
               label: "🩶 Grau"
 
 
-      # ─────────────────────────────
       # SEITENDESIGN
-      # ─────────────────────────────
-
       - name: accentColor
-        label: "🎨 SEITENDESIGN – Akzentfarbe"
+        label: "━━ 🎨 SEITENDESIGN ━━ Akzentfarbe"
         type: select
         options:
           values:
@@ -264,7 +246,7 @@ content:
               label: "💛 Gold"
 
       - name: backgroundColor
-        label: "↳ Seitenhintergrund"
+        label: "      └─ Seitenhintergrund"
         type: select
         options:
           values:
@@ -284,7 +266,7 @@ content:
               label: "🤍 Hell"
 
       - name: cardColor
-        label: "↳ Kartenfarbe"
+        label: "      └─ Kartenfarbe"
         type: select
         options:
           values:
