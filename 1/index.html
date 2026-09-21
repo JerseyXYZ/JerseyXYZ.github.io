@@ -1,1 +1,1212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
 
+<title>Das Leben ist zu kurz …</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #F12643;
+  --background: #050505;
+  --background2: #321018;
+  --card: #101010;
+
+  --accent-soft: rgba(241, 38, 67, .20);
+  --accent-medium: rgba(241, 38, 67, .32);
+  --accent-glow: rgba(241, 38, 67, .45);
+}
+
+
+/* =========================
+   SEITE
+   ========================= */
+
+body {
+  margin: 0;
+  min-height: 100svh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  color: #F5F5F5;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 8% 7%,
+      var(--background2) 0%,
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 92% 93%,
+      var(--background2) 0%,
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      var(--background),
+      var(--background) 55%,
+      var(--background2) 150%
+    );
+
+  background-attachment: fixed;
+}
+
+
+/* =========================
+   KARTE
+   ========================= */
+
+.card {
+  width: 100%;
+  max-width: 680px;
+
+  position: relative;
+
+  padding: 42px 27px 30px;
+
+  text-align: center;
+
+  /*
+    Der Rahmen bleibt fein und bekommt einen
+    sichtbaren Farbverlauf – ähnlich wie bei
+    Hoodie 2, nur mit stärkerem Glow außen.
+  */
+  border: 1px solid transparent;
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--card) 96%,
+        white 4%
+      ),
+      var(--card)
+    ) padding-box,
+
+    linear-gradient(
+      135deg,
+      color-mix(
+        in srgb,
+        var(--accent) 82%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--accent) 28%,
+        transparent
+      ) 48%,
+      color-mix(
+        in srgb,
+        var(--accent) 72%,
+        transparent
+      )
+    ) border-box;
+
+  /*
+    Kräftigerer Schein HINTER dem feinen Rahmen.
+    Die Linie selbst bleibt also elegant.
+  */
+  box-shadow:
+    0 0 10px
+      color-mix(
+        in srgb,
+        var(--accent) 52%,
+        transparent
+      ),
+
+    0 0 24px
+      color-mix(
+        in srgb,
+        var(--accent) 38%,
+        transparent
+      ),
+
+    0 0 50px
+      color-mix(
+        in srgb,
+        var(--accent) 27%,
+        transparent
+      ),
+
+    0 0 90px
+      color-mix(
+        in srgb,
+        var(--accent) 17%,
+        transparent
+      ),
+
+    0 30px 72px
+      rgba(0, 0, 0, .60);
+}
+
+
+/* =========================
+   KLEINE ÜBERSCHRIFT
+   ========================= */
+
+.headline {
+  font-size: .78rem;
+  line-height: 1.4;
+
+  font-weight: 750;
+
+  letter-spacing: .11em;
+  text-transform: uppercase;
+
+  color: var(--accent);
+}
+
+
+/* =========================
+   TRENNLINIEN
+   ========================= */
+
+.line {
+  width: 38px;
+  height: 2px;
+
+  margin: 17px auto;
+
+  border-radius: 10px;
+
+  background: var(--accent);
+
+  box-shadow:
+    0 0 5px var(--accent-soft),
+    0 0 10px var(--accent-soft);
+}
+
+
+/* =========================
+   GROSSE ÜBERSCHRIFT
+   ========================= */
+
+.title {
+  margin: 20px 0;
+
+  font-size: clamp(2rem, 9vw, 3.1rem);
+  line-height: 1.05;
+
+  font-weight: 300;
+}
+
+
+/* =========================
+   HAUPTTEXT
+   ========================= */
+
+.text {
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  font-size: 1.03rem;
+  line-height: 1.65;
+
+  white-space: pre-line;
+}
+
+
+/* =========================
+   GRUSS
+   ========================= */
+
+.greeting {
+  margin-top: 26px;
+
+  font-size: .88rem;
+  line-height: 1.5;
+
+  font-style: italic;
+}
+
+
+/* =========================
+   PS
+   ========================= */
+
+.ps {
+  margin-top: 15px;
+
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.ps-label {
+  color: var(--accent);
+
+  font-weight: 800;
+
+  text-shadow:
+    0 0 7px var(--accent-soft);
+}
+
+
+/* =========================
+   ZÄHLER
+   ========================= */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.like-button,
+.view-box {
+  min-height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 11px 15px;
+
+  border-radius: 16px;
+
+  font: inherit;
+  font-size: .84rem;
+}
+
+
+/* =========================
+   DANKE BUTTON
+   ========================= */
+
+.like-button {
+  border: 1.5px solid var(--accent);
+
+  /*
+    Deutlich mehr Akzentfarbe als vorher.
+    Dadurch wirkt Blau genauso kräftig
+    wie Rot.
+  */
+  background:
+    linear-gradient(
+      135deg,
+
+      color-mix(
+        in srgb,
+        var(--accent) 72%,
+        #111 28%
+      ),
+
+      color-mix(
+        in srgb,
+        var(--accent) 48%,
+        #111 52%
+      )
+    );
+
+  color: #FFFFFF;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 7px var(--accent-soft),
+    0 0 16px var(--accent-medium);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.55);
+
+  transition:
+    transform .15s ease,
+    filter .15s ease,
+    box-shadow .15s ease;
+}
+
+.like-button:not(:disabled):hover {
+  filter: brightness(1.12);
+
+  box-shadow:
+    0 0 9px var(--accent-medium),
+    0 0 20px var(--accent-soft);
+}
+
+.like-button:not(:disabled):active {
+  transform: scale(.97);
+}
+
+
+/*
+  Wenn bereits Danke gedrückt wurde,
+  bleibt der Button trotzdem kräftig.
+*/
+
+.like-button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+
+/* =========================
+   AUFRUFE
+   ========================= */
+
+.view-box {
+  border: 1px solid rgba(255,255,255,.15);
+
+  background:
+    rgba(255,255,255,.045);
+
+  color: #D0D0D0;
+}
+
+
+/* =========================
+   HANDY
+   ========================= */
+
+
+@media (min-width: 700px) {
+
+  body {
+    padding: 45px 30px;
+  }
+
+  .card {
+    max-width: 680px;
+    padding: 55px 55px 42px;
+    border-radius: 30px;
+  }
+
+  .headline {
+    font-size: 1rem;
+    letter-spacing: .14em;
+  }
+
+  .title {
+    margin-top: 25px;
+    margin-bottom: 28px;
+    font-size: 3.2rem;
+  }
+
+  .text {
+    font-size: 1.18rem;
+    line-height: 1.7;
+  }
+
+  .greeting {
+    font-size: .98rem;
+  }
+
+  .ps {
+    font-size: 1rem;
+  }
+
+  .stats {
+    margin-top: 34px;
+    padding-top: 28px;
+  }
+
+  .like-button,
+  .views {
+    font-size: .95rem;
+    padding: 11px 17px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  body {
+    padding: 13px;
+  }
+
+  .card {
+    padding: 36px 19px 27px;
+
+    border-radius: 22px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .like-button,
+  .view-box {
+    padding: 10px 11px;
+
+    font-size: .79rem;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<main class="card">
+
+  <div
+    id="headline"
+    class="headline"
+  >
+    🫵 AN DIE PERSON HINTER MIR:
+  </div>
+
+
+  <div class="line"></div>
+
+
+  <div
+    id="title"
+    class="title"
+  >
+    Das Leben ist zu kurz …
+  </div>
+
+
+  <div
+    id="bodyText"
+    class="text"
+  >
+    Mach mehr von dem, was Dich glücklich macht. Lächle, hab Spaß und sei frei. ❤️
+  </div>
+
+
+  <div class="line"></div>
+
+
+  <div
+    id="greeting"
+    class="greeting"
+  >
+    Freundliche Grüße, die Person vor Dir
+  </div>
+
+
+  <div
+    id="ps"
+    class="ps"
+  >
+
+    <span class="ps-label">
+      PS:
+    </span>
+
+    <span id="psText">
+      So wie Du bist, bist Du genau richtig. ❤️
+    </span>
+
+  </div>
+
+
+  <div class="stats">
+
+    <button
+      id="likeButton"
+      class="like-button"
+      type="button"
+      disabled
+    >
+      ❤️
+      <span id="likes">0</span>
+      Danke
+    </button>
+
+
+    <div class="view-box">
+      👀
+      <span id="views">0</span>
+      Aufrufe
+    </div>
+
+  </div>
+
+</main>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://wbxwzspkoriyjmcbomxn.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_7-e-CafdZaT2CMCDhDH0DQ_qZLKzDVq";
+
+const HOODIE =
+  "hoodie1";
+
+
+const headers = {
+
+  "apikey":
+    SUPABASE_KEY,
+
+  "Authorization":
+    "Bearer " + SUPABASE_KEY,
+
+  "Content-Type":
+    "application/json"
+};
+
+
+/* =========================
+   SCHRIFTARTEN
+   ========================= */
+
+const fonts = {
+
+  modern:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
+
+  elegant:
+    'Georgia, "Times New Roman", serif',
+
+  classic:
+    '"Times New Roman", Times, serif',
+
+  handwritten:
+    '"Bradley Hand", "Brush Script MT", cursive',
+
+  playful:
+    '"Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif'
+};
+
+
+/* =========================
+   HEX → RGBA
+   ========================= */
+
+function hexToRgba(hex, alpha) {
+
+  let value =
+    String(hex || "")
+      .replace("#", "")
+      .trim();
+
+
+  if (value.length !== 6) {
+
+    return (
+      "rgba(241,38,67," +
+      alpha +
+      ")"
+    );
+  }
+
+
+  const r =
+    parseInt(
+      value.substring(0,2),
+      16
+    );
+
+
+  const g =
+    parseInt(
+      value.substring(2,4),
+      16
+    );
+
+
+  const b =
+    parseInt(
+      value.substring(4,6),
+      16
+    );
+
+
+  return (
+    "rgba(" +
+    r + "," +
+    g + "," +
+    b + "," +
+    alpha +
+    ")"
+  );
+}
+
+
+/* =========================
+   INHALT LADEN
+   ========================= */
+
+async function loadContent() {
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/hoodie_content" +
+        "?hoodie=eq." +
+        encodeURIComponent(HOODIE) +
+        "&select=*",
+
+        {
+          headers: headers,
+          cache: "no-store"
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (!data.length) {
+      return;
+    }
+
+
+    const c =
+      data[0];
+
+
+    /* =====================
+       TEXTE
+       ===================== */
+
+    if (c.headline) {
+
+      document.getElementById(
+        "headline"
+      ).textContent =
+        c.headline;
+    }
+
+
+    if (c.title) {
+
+      document.getElementById(
+        "title"
+      ).textContent =
+        c.title;
+    }
+
+
+    if (c.body_text) {
+
+      document.getElementById(
+        "bodyText"
+      ).textContent =
+        c.body_text;
+    }
+
+
+    if (c.greeting) {
+
+      document.getElementById(
+        "greeting"
+      ).textContent =
+        c.greeting;
+    }
+
+
+    if (c.ps) {
+
+      document.getElementById(
+        "psText"
+      ).textContent =
+        c.ps;
+    }
+
+
+    /* =====================
+       SCHRIFTARTEN
+       ===================== */
+
+    document.getElementById(
+      "headline"
+    ).style.fontFamily =
+      fonts[c.headline_font] ||
+      fonts.modern;
+
+
+    document.getElementById(
+      "title"
+    ).style.fontFamily =
+      fonts[c.title_font] ||
+      fonts.modern;
+
+
+    document.getElementById(
+      "bodyText"
+    ).style.fontFamily =
+      fonts[c.text_font] ||
+      fonts.modern;
+
+
+    document.getElementById(
+      "greeting"
+    ).style.fontFamily =
+      fonts[c.greeting_font] ||
+      fonts.modern;
+
+
+    document.getElementById(
+      "ps"
+    ).style.fontFamily =
+      fonts[c.ps_font] ||
+      fonts.modern;
+
+
+    /* =====================
+       TEXTFARBEN
+       ===================== */
+
+    document.getElementById(
+      "headline"
+    ).style.color =
+      c.headline_color ||
+      "#F12643";
+
+
+    document.getElementById(
+      "title"
+    ).style.color =
+      c.title_color ||
+      "#F5F5F5";
+
+
+    document.getElementById(
+      "bodyText"
+    ).style.color =
+      c.text_color ||
+      "#F5F5F5";
+
+
+    document.getElementById(
+      "greeting"
+    ).style.color =
+      c.greeting_color ||
+      "#B8B8B8";
+
+
+    document.getElementById(
+      "ps"
+    ).style.color =
+      c.ps_color ||
+      "#F5F5F5";
+
+
+    /* =====================
+       DESIGN
+       ===================== */
+
+    const accent =
+      c.accent_color ||
+      "#F12643";
+
+
+    const background =
+      c.background_color ||
+      "#050505";
+
+
+    const background2 =
+      c.background_color_2 ||
+      "#321018";
+
+
+    const card =
+      c.card_color ||
+      "#101010";
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--accent",
+        accent
+      );
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--background",
+        background
+      );
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--background2",
+        background2
+      );
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--card",
+        card
+      );
+
+
+    /*
+      Glow wird automatisch aus
+      der Akzentfarbe erzeugt.
+    */
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--accent-soft",
+        hexToRgba(
+          accent,
+          .20
+        )
+      );
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--accent-medium",
+        hexToRgba(
+          accent,
+          .32
+        )
+      );
+
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--accent-glow",
+        hexToRgba(
+          accent,
+          .45
+        )
+      );
+
+
+    /*
+      Farbe der Browserleiste
+    */
+
+    const themeMeta =
+      document.querySelector(
+        'meta[name="theme-color"]'
+      );
+
+
+    if (themeMeta) {
+
+      themeMeta.setAttribute(
+        "content",
+        background
+      );
+    }
+
+
+  } catch (error) {
+
+    console.error(
+      "Hoodie-Inhalte konnten nicht geladen werden."
+    );
+  }
+}
+
+
+/* =========================
+   STATISTIK
+   ========================= */
+
+let resetVersion = 0;
+
+
+function showStats(data) {
+
+  document.getElementById(
+    "views"
+  ).textContent =
+    data.views ?? 0;
+
+
+  document.getElementById(
+    "likes"
+  ).textContent =
+    data.likes ?? 0;
+
+
+  resetVersion =
+    data.reset_version ?? 0;
+
+
+  updateLikeButton();
+}
+
+
+/* =========================
+   AUFRUF ZÄHLEN
+   ========================= */
+
+async function registerView() {
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/rpc/hoodie_view",
+
+        {
+          method: "POST",
+
+          headers: headers,
+
+          body:
+            JSON.stringify({
+              p_hoodie: HOODIE
+            })
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const data =
+      await response.json();
+
+
+    showStats(data);
+
+
+  } catch (error) {
+
+    await loadStats();
+  }
+}
+
+
+/* =========================
+   STATISTIK LADEN
+   ========================= */
+
+async function loadStats() {
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/hoodie_stats" +
+        "?hoodie=eq." +
+        encodeURIComponent(HOODIE) +
+        "&select=views,likes,reset_version",
+
+        {
+          headers: headers,
+          cache: "no-store"
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (data.length) {
+
+      showStats(
+        data[0]
+      );
+    }
+
+
+  } catch (error) {
+
+    document.getElementById(
+      "views"
+    ).textContent =
+      "?";
+
+
+    document.getElementById(
+      "likes"
+    ).textContent =
+      "?";
+  }
+}
+
+
+/* =========================
+   DANKE STATUS
+   ========================= */
+
+function likeStorageKey() {
+
+  return (
+    HOODIE +
+    "-liked-" +
+    resetVersion
+  );
+}
+
+
+function updateLikeButton() {
+
+  const button =
+    document.getElementById(
+      "likeButton"
+    );
+
+
+  const liked =
+    localStorage.getItem(
+      likeStorageKey()
+    ) === "yes";
+
+
+  button.disabled =
+    liked;
+
+
+  /*
+    Auch nach einem Danke bleibt
+    der Button gut sichtbar.
+  */
+
+  button.style.opacity =
+    liked
+      ? "1"
+      : "1";
+}
+
+
+/* =========================
+   DANKE KLICK
+   ========================= */
+
+document.getElementById(
+  "likeButton"
+).addEventListener(
+  "click",
+
+  async function() {
+
+    const button =
+      document.getElementById(
+        "likeButton"
+      );
+
+
+    if (
+      localStorage.getItem(
+        likeStorageKey()
+      ) === "yes"
+    ) {
+      return;
+    }
+
+
+    button.disabled =
+      true;
+
+
+    try {
+
+      const response =
+        await fetch(
+
+          SUPABASE_URL +
+          "/rest/v1/rpc/hoodie_like",
+
+          {
+            method: "POST",
+
+            headers: headers,
+
+            body:
+              JSON.stringify({
+                p_hoodie: HOODIE
+              })
+          }
+        );
+
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+
+      const data =
+        await response.json();
+
+
+      localStorage.setItem(
+        likeStorageKey(),
+        "yes"
+      );
+
+
+      showStats(
+        data
+      );
+
+
+    } catch (error) {
+
+      button.disabled =
+        false;
+    }
+  }
+);
+
+
+/* =========================
+   START
+   ========================= */
+
+async function start() {
+
+  await loadContent();
+
+  await registerView();
+}
+
+
+start();
+
+</script>
+
+</body>
+</html>
