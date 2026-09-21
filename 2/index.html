@@ -3,178 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Für die Person hinter mir ❤️</title>
+
+<title>Hoodie 2 – Verwaltung</title>
 
 <style>
-* { box-sizing: border-box; }
-
-:root {
-  --accent-color: #F12643;
-  --background-color: #050505;
-  --card-color: #101010;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   min-height: 100svh;
-  padding: 22px 16px;
+  padding: 20px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background:
-    radial-gradient(circle at 5% 10%,
-      color-mix(in srgb, var(--accent-color) 25%, transparent),
-      transparent 32%),
-    radial-gradient(circle at 95% 90%,
-      color-mix(in srgb, var(--accent-color) 18%, transparent),
-      transparent 34%),
-    var(--background-color);
-
-  color: #F5F5F5;
   font-family:
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Arial, sans-serif;
-}
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .25;
+  color: #f5f5f5;
 
-  background-image:
-    repeating-linear-gradient(
-      130deg,
-      transparent 0,
-      transparent 34px,
-      rgba(255,255,255,.025) 35px,
-      transparent 36px
-    );
+  background:
+    radial-gradient(circle at 10% 10%, #321018, transparent 35%),
+    radial-gradient(circle at 90% 90%, #25080e, transparent 35%),
+    #050505;
 }
 
 .card {
-  position: relative;
   width: 100%;
-  max-width: 500px;
-  padding: 38px 25px 30px;
-  overflow: hidden;
+  max-width: 480px;
+  padding: 35px 25px;
+
   text-align: center;
 
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--card-color) 94%, white 6%),
-      var(--card-color)
-    );
+  background: #101010;
 
-  border:
-    1px solid
-    color-mix(in srgb, var(--accent-color) 35%, transparent);
-
+  border: 1px solid rgba(241, 38, 67, .35);
   border-radius: 25px;
 
   box-shadow:
-    0 24px 65px rgba(0,0,0,.65),
-    0 0 35px
-    color-mix(in srgb, var(--accent-color) 8%, transparent);
+    0 25px 60px rgba(0,0,0,.6);
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 25%;
-  width: 50%;
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--accent-color),
-      transparent
-    );
-
-  box-shadow:
-    0 0 18px
-    color-mix(in srgb, var(--accent-color) 55%, transparent);
+.icon {
+  font-size: 2rem;
 }
-
-
-/* KLEINE ÜBERSCHRIFT */
-
-.headline {
-  font-size: .9rem;
-  line-height: 1.4;
-  font-weight: 750;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.headline::after {
-  content: "";
-  display: block;
-  width: 36px;
-  height: 2px;
-  margin: 17px auto 0;
-  border-radius: 10px;
-  background: var(--accent-color);
-}
-
-
-/* GROSSE ÜBERSCHRIFT */
 
 h1 {
-  max-width: 520px;
-  margin: 20px auto 22px;
-  font-size: clamp(2rem, 7vw, 2.75rem);
-  line-height: 1.08;
-  font-weight: 300;
-  letter-spacing: -.04em;
+  margin: 10px 0 5px;
+  font-size: 1.7rem;
+}
+
+.subtitle {
+  margin-bottom: 28px;
+  color: #aaa;
+  font-size: .9rem;
 }
 
 
-/* HAUPTTEXT */
+/* BEARBEITEN */
 
-.text {
-  max-width: 500px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  white-space: pre-line;
+.edit-box {
+  margin-bottom: 30px;
 }
 
-.message-end {
-  width: 36px;
-  height: 1px;
-  margin: 26px auto 23px;
-  background: var(--accent-color);
-  opacity: .75;
+.edit-button {
+  display: block;
+  width: 100%;
+  padding: 14px 15px;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+
+  background: #181818;
+  color: #f5f5f5;
+
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: .2s ease;
+}
+
+.edit-button:hover {
+  border-color: #f12643;
+  background: #201416;
+}
+
+.edit-info {
+  margin: 9px 0 0;
+  color: #888;
+  font-size: .78rem;
 }
 
 
-/* GRUSS */
+/* TRENNER */
 
-.greeting {
-  font-size: .88rem;
-  line-height: 1.5;
-  font-style: italic;
-}
+.section-title {
+  margin: 0 0 15px;
+  padding-top: 25px;
 
+  border-top: 1px solid rgba(255,255,255,.10);
 
-/* PS */
-
-.ps {
-  max-width: 500px;
-  margin: 14px auto 0;
-  font-size: .92rem;
-  line-height: 1.5;
-}
-
-.ps-label {
-  color: var(--accent-color);
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -182,177 +118,125 @@ h1 {
 /* STATISTIK */
 
 .stats {
-  position: relative;
-  margin-top: 27px;
-  padding-top: 23px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
-  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
-.stats::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 25%;
-  right: 25%;
-  height: 1px;
+.stat {
+  padding: 20px 10px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.12),
-      transparent
-    );
+  background: #181818;
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
 }
 
-.like-button,
-.views {
-  min-height: 44px;
-  padding: 10px 15px;
-
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.10);
-
-  background: rgba(255,255,255,.045);
-  color: #F5F5F5;
-
-  font: inherit;
-  font-size: .88rem;
-  white-space: nowrap;
-}
-
-.like-button {
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.like-button:hover:not(:disabled) {
-  border-color: var(--accent-color);
-
-  background:
-    color-mix(
-      in srgb,
-      var(--accent-color) 10%,
-      transparent
-    );
-}
-
-.like-button.liked {
-  border-color: var(--accent-color);
-
-  background:
-    color-mix(
-      in srgb,
-      var(--accent-color) 14%,
-      transparent
-    );
-}
-
-.like-button:disabled {
-  cursor: default;
+.stat-icon {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.4rem;
 }
 
 .stat-number {
+  display: block;
+  margin-bottom: 3px;
+
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
-
-/* DESKTOP */
-
-@media (min-width: 700px) {
-
-  body {
-    padding: 45px 30px;
-  }
-
-  .card {
-    max-width: 680px;
-    padding: 55px 55px 42px;
-    border-radius: 30px;
-  }
-
-  .headline {
-    font-size: 1rem;
-    letter-spacing: .14em;
-  }
-
-  h1 {
-    margin-top: 25px;
-    margin-bottom: 28px;
-    font-size: 3.2rem;
-  }
-
-  .text {
-    font-size: 1.18rem;
-    line-height: 1.7;
-  }
-
-  .greeting {
-    font-size: .98rem;
-  }
-
-  .ps {
-    font-size: 1rem;
-  }
-
-  .stats {
-    margin-top: 34px;
-    padding-top: 28px;
-  }
-
-  .like-button,
-  .views {
-    font-size: .95rem;
-    padding: 11px 17px;
-  }
+.stat-label {
+  color: #aaa;
+  font-size: .82rem;
 }
 
 
-/* MOBIL */
+/* RESET */
 
-@media (max-width: 430px) {
+.reset-box {
+  padding-top: 24px;
 
-  body {
-    padding: 14px;
-  }
+  border-top: 1px solid rgba(255,255,255,.10);
+}
 
-  .card {
-    padding: 32px 19px 25px;
-    border-radius: 22px;
-  }
+.reset-title {
+  margin-bottom: 7px;
+  font-weight: 700;
+}
 
-  .headline {
-    font-size: .82rem;
-    letter-spacing: .10em;
-  }
+.reset-info {
+  margin: 0 auto 18px;
+  max-width: 330px;
 
-  h1 {
-    margin-top: 18px;
-    font-size: clamp(2rem, 10vw, 2.5rem);
-  }
+  color: #999;
 
-  .text {
-    font-size: 1rem;
-  }
+  font-size: .82rem;
+  line-height: 1.5;
+}
 
-  .message-end {
-    margin-top: 23px;
-  }
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 13px 15px;
 
-  .stats {
-    gap: 8px;
-  }
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 12px;
 
-  .like-button,
-  .views {
-    font-size: .82rem;
-    padding: 9px 12px;
-  }
+  outline: none;
+
+  background: #181818;
+  color: white;
+
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #f12643;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 13px 15px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #f12643;
+  color: white;
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  filter: brightness(1.08);
+}
+
+.reset-button:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+
+/* MELDUNG */
+
+.message {
+  min-height: 22px;
+  margin-top: 15px;
+  font-size: .88rem;
+}
+
+.message.success {
+  color: #6ddd96;
+}
+
+.message.error {
+  color: #ff7185;
 }
 </style>
 </head>
@@ -362,33 +246,110 @@ h1 {
 
 <main class="card">
 
-  <div id="headline" class="headline"></div>
+  <div class="icon">⚙️</div>
 
-  <h1 id="title"></h1>
+  <h1>Hoodie 2</h1>
 
-  <div id="text" class="text"></div>
+  <div class="subtitle">
+    Verwaltung
+  </div>
 
-  <div class="message-end"></div>
 
-  <div id="greeting" class="greeting"></div>
+  <!-- TEXT & DESIGN -->
 
-  <div id="ps" class="ps"></div>
+  <div class="edit-box">
+
+    <a
+      class="edit-button"
+      href="https://app.pagescms.org/jerseyxyz/jerseyxyz.github.io/main/file/page2"
+      target="_blank"
+      rel="noopener"
+    >
+      ✏️ Text & Design bearbeiten
+    </a>
+
+    <p class="edit-info">
+      Überschriften, Texte, Schriften und Farben ändern
+    </p>
+
+  </div>
+
+
+  <!-- STATISTIK -->
+
+  <div class="section-title">
+    📊 Statistik
+  </div>
 
 
   <div class="stats">
 
-    <button
-      id="likeButton"
-      class="like-button"
-      type="button"
-      disabled
+    <div class="stat">
+
+      <span class="stat-icon">👀</span>
+
+      <span id="views" class="stat-number">
+        –
+      </span>
+
+      <span class="stat-label">
+        Aufrufe
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <span class="stat-icon">❤️</span>
+
+      <span id="likes" class="stat-number">
+        –
+      </span>
+
+      <span class="stat-label">
+        Danke
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESET -->
+
+  <div class="reset-box">
+
+    <div class="reset-title">
+      🔄 Zähler zurücksetzen
+    </div>
+
+    <p class="reset-info">
+      Setzt Aufrufe und Danke für diesen Hoodie auf 0.
+    </p>
+
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Passwort"
+      autocomplete="current-password"
     >
-      ❤️ <span id="likes" class="stat-number">0</span> Danke
+
+
+    <button
+      id="resetButton"
+      class="reset-button"
+      type="button"
+    >
+      Zähler zurücksetzen
     </button>
 
-    <div class="views">
-      👀 <span id="views" class="stat-number">0</span> Aufrufe
-    </div>
+
+    <div
+      id="message"
+      class="message"
+    ></div>
 
   </div>
 
@@ -396,211 +357,6 @@ h1 {
 
 
 <script>
-
-/* ==========================================
-   TEXT + DESIGN AUS PAGES CMS
-   ========================================== */
-
-const fonts = {
-
-  modern:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
-
-  elegant:
-    'Georgia, "Times New Roman", serif',
-
-  classic:
-    '"Times New Roman", Times, serif',
-
-  handwritten:
-    '"Bradley Hand", "Brush Script MT", cursive',
-
-  playful:
-    '"Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif'
-};
-
-
-function applyFont(element, fontName) {
-
-  if (fontName && fonts[fontName]) {
-    element.style.fontFamily = fonts[fontName];
-  }
-}
-
-
-function applyColor(element, color) {
-
-  if (color) {
-    element.style.color = color;
-  }
-}
-
-
-fetch("./content.json?v=" + Date.now(), {
-  cache: "no-store"
-})
-.then(response => {
-
-  if (!response.ok) {
-    throw new Error("Inhalt konnte nicht geladen werden.");
-  }
-
-  return response.json();
-})
-.then(data => {
-
-  const headline =
-    document.getElementById("headline");
-
-  const title =
-    document.getElementById("title");
-
-  const text =
-    document.getElementById("text");
-
-  const greeting =
-    document.getElementById("greeting");
-
-  const ps =
-    document.getElementById("ps");
-
-
-  /* KLEINE ÜBERSCHRIFT */
-
-  headline.textContent =
-    data.headline || "";
-
-  applyFont(
-    headline,
-    data.headlineFont
-  );
-
-  applyColor(
-    headline,
-    data.headlineColor
-  );
-
-
-  /* GROSSE ÜBERSCHRIFT */
-
-  title.textContent =
-    data.title || "";
-
-  applyFont(
-    title,
-    data.titleFont
-  );
-
-  applyColor(
-    title,
-    data.titleColor
-  );
-
-
-  /* HAUPTTEXT */
-
-  text.textContent =
-    data.text || "";
-
-  applyFont(
-    text,
-    data.textFont
-  );
-
-  applyColor(
-    text,
-    data.textColor
-  );
-
-
-  /* GRUSSZEILE */
-
-  greeting.textContent =
-    data.greeting || "";
-
-  applyFont(
-    greeting,
-    data.greetingFont
-  );
-
-  applyColor(
-    greeting,
-    data.greetingColor
-  );
-
-
-  /* PS */
-
-  ps.innerHTML = "";
-
-  applyFont(
-    ps,
-    data.psFont
-  );
-
-  applyColor(
-    ps,
-    data.psColor
-  );
-
-  if (data.ps) {
-
-    const label =
-      document.createElement("span");
-
-    label.className =
-      "ps-label";
-
-    label.textContent =
-      "PS: ";
-
-    ps.appendChild(label);
-
-    ps.appendChild(
-      document.createTextNode(data.ps)
-    );
-  }
-
-
-  /* SEITENDESIGN */
-
-  const root =
-    document.documentElement;
-
-  if (data.accentColor) {
-    root.style.setProperty(
-      "--accent-color",
-      data.accentColor
-    );
-  }
-
-  if (data.backgroundColor) {
-    root.style.setProperty(
-      "--background-color",
-      data.backgroundColor
-    );
-  }
-
-  if (data.cardColor) {
-    root.style.setProperty(
-      "--card-color",
-      data.cardColor
-    );
-  }
-
-})
-.catch(error => {
-
-  console.error(error);
-
-  document.getElementById("title").textContent =
-    "Für die Person hinter mir ❤️";
-});
-
-
-/* ==========================================
-   HOODIE STATISTIK
-   ========================================== */
 
 const SUPABASE_URL =
   "https://wbxwzspkoriyjmcbomxn.supabase.co";
@@ -610,6 +366,7 @@ const SUPABASE_KEY =
 
 const HOODIE =
   "hoodie2";
+
 
 const headers = {
 
@@ -624,125 +381,23 @@ const headers = {
 };
 
 
-const likesElement =
-  document.getElementById("likes");
-
 const viewsElement =
   document.getElementById("views");
 
-const likeButton =
-  document.getElementById("likeButton");
+const likesElement =
+  document.getElementById("likes");
+
+const passwordElement =
+  document.getElementById("password");
+
+const resetButton =
+  document.getElementById("resetButton");
+
+const messageElement =
+  document.getElementById("message");
 
 
-let currentResetVersion = 0;
-
-
-/* STATISTIK ANZEIGEN */
-
-function showStats(data) {
-
-  if (!data) return;
-
-
-  if (typeof data.likes !== "undefined") {
-
-    likesElement.textContent =
-      data.likes;
-  }
-
-
-  if (typeof data.views !== "undefined") {
-
-    viewsElement.textContent =
-      data.views;
-  }
-
-
-  if (
-    typeof data.reset_version !== "undefined"
-  ) {
-
-    currentResetVersion =
-      data.reset_version;
-
-
-    const currentLikeKey =
-      HOODIE +
-      "-liked-" +
-      currentResetVersion;
-
-
-    if (
-      localStorage.getItem(currentLikeKey) === "yes"
-    ) {
-
-      likeButton.classList.add("liked");
-
-      likeButton.disabled =
-        true;
-
-    } else {
-
-      likeButton.classList.remove("liked");
-
-      likeButton.disabled =
-        false;
-    }
-  }
-}
-
-
-/* AUFRUF ZÄHLEN */
-
-async function countView() {
-
-  try {
-
-    const response =
-      await fetch(
-
-        SUPABASE_URL +
-        "/rest/v1/rpc/hoodie_view",
-
-        {
-          method: "POST",
-          headers: headers,
-
-          body: JSON.stringify({
-            p_hoodie: HOODIE
-          })
-        }
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Aufruf konnte nicht gezählt werden."
-      );
-    }
-
-
-    const data =
-      await response.json();
-
-
-    showStats(data);
-
-
-  } catch (error) {
-
-    console.error(
-      "Statistik:",
-      error
-    );
-
-    loadStats();
-  }
-}
-
-
-/* AKTUELLE ZAHLEN LADEN */
+/* STATISTIK LADEN */
 
 async function loadStats() {
 
@@ -754,19 +409,17 @@ async function loadStats() {
         SUPABASE_URL +
         "/rest/v1/hoodie_stats?hoodie=eq." +
         HOODIE +
-        "&select=views,likes,reset_version",
+        "&select=views,likes",
 
         {
-          headers: headers
+          headers: headers,
+          cache: "no-store"
         }
       );
 
 
     if (!response.ok) {
-
-      throw new Error(
-        "Statistik konnte nicht geladen werden."
-      );
+      throw new Error();
     }
 
 
@@ -776,45 +429,78 @@ async function loadStats() {
 
     if (data.length) {
 
-      showStats(data[0]);
+      viewsElement.textContent =
+        data[0].views;
+
+      likesElement.textContent =
+        data[0].likes;
     }
 
 
   } catch (error) {
 
-    console.error(
-      "Statistik:",
-      error
+    viewsElement.textContent = "?";
+    likesElement.textContent = "?";
+
+    showMessage(
+      "Statistik konnte nicht geladen werden.",
+      "error"
     );
   }
 }
 
 
-/* DANKE / LIKE */
+/* MELDUNG */
 
-likeButton.addEventListener(
+function showMessage(text, type) {
+
+  messageElement.textContent =
+    text;
+
+  messageElement.className =
+    "message " + type;
+}
+
+
+/* ZURÜCKSETZEN */
+
+resetButton.addEventListener(
   "click",
 
   async function () {
 
-    const likeStorageKey =
-      HOODIE +
-      "-liked-" +
-      currentResetVersion;
+    const password =
+      passwordElement.value;
 
 
-    if (
-      localStorage.getItem(
-        likeStorageKey
-      ) === "yes"
-    ) {
+    if (!password) {
+
+      showMessage(
+        "Bitte zuerst das Passwort eingeben.",
+        "error"
+      );
 
       return;
     }
 
 
-    likeButton.disabled =
-      true;
+    const confirmed =
+      confirm(
+        "Aufrufe und Danke wirklich auf 0 setzen?"
+      );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    resetButton.disabled = true;
+
+    resetButton.textContent =
+      "Wird zurückgesetzt …";
+
+    showMessage("", "");
 
 
     try {
@@ -823,24 +509,27 @@ likeButton.addEventListener(
         await fetch(
 
           SUPABASE_URL +
-          "/rest/v1/rpc/hoodie_like",
+          "/rest/v1/rpc/hoodie_reset",
 
           {
             method: "POST",
+
             headers: headers,
 
             body: JSON.stringify({
-              p_hoodie: HOODIE
+
+              p_hoodie:
+                HOODIE,
+
+              p_password:
+                password
             })
           }
         );
 
 
       if (!response.ok) {
-
-        throw new Error(
-          "Danke konnte nicht gespeichert werden."
-        );
+        throw new Error();
       }
 
 
@@ -848,40 +537,61 @@ likeButton.addEventListener(
         await response.json();
 
 
-      showStats(data);
+      viewsElement.textContent =
+        data.views ?? 0;
+
+      likesElement.textContent =
+        data.likes ?? 0;
 
 
-      localStorage.setItem(
-        likeStorageKey,
-        "yes"
+      passwordElement.value =
+        "";
+
+
+      showMessage(
+        "✓ Zähler wurden auf 0 zurückgesetzt.",
+        "success"
       );
-
-
-      likeButton.classList.add(
-        "liked"
-      );
-
-      likeButton.disabled =
-        true;
 
 
     } catch (error) {
 
-      console.error(
-        "Like:",
-        error
+      showMessage(
+        "Passwort falsch oder Zurücksetzen nicht möglich.",
+        "error"
       );
 
-      likeButton.disabled =
+
+    } finally {
+
+      resetButton.disabled =
         false;
+
+      resetButton.textContent =
+        "Zähler zurücksetzen";
+    }
+
+  }
+);
+
+
+/* ENTER = RESET */
+
+passwordElement.addEventListener(
+  "keydown",
+
+  function(event) {
+
+    if (event.key === "Enter") {
+      resetButton.click();
     }
   }
 );
 
 
-/* BEIM ÖFFNEN +1 AUFRUF */
+/* START */
 
-countView();
+loadStats();
 
 </script>
 
