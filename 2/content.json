@@ -1,24 +1,19 @@
 {
   "headline": "🫵 AN DIE PERSON HINTER MIR:",
   "headlineFont": "modern",
-  "headlineColor": "#F12643",
-
+  "headlineColor": "#B76CFF",
   "title": "Das Leben ist zu kurz …",
   "titleFont": "modern",
   "titleColor": "#F5F5F5",
-
   "text": "Mach mehr von dem, was Dich glücklich macht. Lächle, hab Spaß und sei frei. ❤️",
   "textFont": "modern",
   "textColor": "#F5F5F5",
-
   "greeting": "Freundliche Grüße, die Person vor Dir",
   "greetingFont": "modern",
   "greetingColor": "#B8B8B8",
-
   "ps": "So wie Du bist, bist Du genau richtig. ❤️",
   "psFont": "modern",
   "psColor": "#F5F5F5",
-
   "accentColor": "#F12643",
   "backgroundColor": "#050505",
   "cardColor": "#101010"
