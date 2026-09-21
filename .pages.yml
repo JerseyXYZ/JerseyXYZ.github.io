@@ -9,54 +9,266 @@ content:
         label: Kleine Überschrift
         type: string
 
+      - name: headlineFont
+        label: Schrift – Kleine Überschrift
+        type: select
+        options:
+          values:
+            - value: modern
+              label: Modern – klar & schlicht
+            - value: elegant
+              label: Elegant – fein & edel
+            - value: classic
+              label: Klassisch – Buchstil
+            - value: handwritten
+              label: Handschrift – persönlich
+            - value: playful
+              label: Verspielt – locker
+
+      - name: headlineColor
+        label: Farbe – Kleine Überschrift
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
+            - value: "#F5F5F5"
+              label: Weiß
+            - value: "#B8B8B8"
+              label: Grau
+
       - name: title
         label: Große Überschrift
         type: string
+
+      - name: titleFont
+        label: Schrift – Große Überschrift
+        type: select
+        options:
+          values:
+            - value: modern
+              label: Modern – klar & schlicht
+            - value: elegant
+              label: Elegant – fein & edel
+            - value: classic
+              label: Klassisch – Buchstil
+            - value: handwritten
+              label: Handschrift – persönlich
+            - value: playful
+              label: Verspielt – locker
+
+      - name: titleColor
+        label: Farbe – Große Überschrift
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
+            - value: "#F5F5F5"
+              label: Weiß
+            - value: "#B8B8B8"
+              label: Grau
 
       - name: text
         label: Haupttext
         type: text
 
+      - name: textFont
+        label: Schrift – Haupttext
+        type: select
+        options:
+          values:
+            - value: modern
+              label: Modern – klar & schlicht
+            - value: elegant
+              label: Elegant – fein & edel
+            - value: classic
+              label: Klassisch – Buchstil
+            - value: handwritten
+              label: Handschrift – persönlich
+            - value: playful
+              label: Verspielt – locker
+
+      - name: textColor
+        label: Farbe – Haupttext
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
+            - value: "#F5F5F5"
+              label: Weiß
+            - value: "#B8B8B8"
+              label: Grau
+
       - name: greeting
         label: Grußzeile
         type: string
+
+      - name: greetingFont
+        label: Schrift – Grußzeile
+        type: select
+        options:
+          values:
+            - value: modern
+              label: Modern – klar & schlicht
+            - value: elegant
+              label: Elegant – fein & edel
+            - value: classic
+              label: Klassisch – Buchstil
+            - value: handwritten
+              label: Handschrift – persönlich
+            - value: playful
+              label: Verspielt – locker
+
+      - name: greetingColor
+        label: Farbe – Grußzeile
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
+            - value: "#F5F5F5"
+              label: Weiß
+            - value: "#B8B8B8"
+              label: Grau
 
       - name: ps
         label: PS
         type: string
 
-      - name: font
-        label: Schriftart
+      - name: psFont
+        label: Schrift – PS
         type: select
         options:
           values:
             - value: modern
-              label: Modern
+              label: Modern – klar & schlicht
             - value: elegant
-              label: Elegant
+              label: Elegant – fein & edel
             - value: classic
-              label: Klassisch
+              label: Klassisch – Buchstil
             - value: handwritten
-              label: Handschriftlich
+              label: Handschrift – persönlich
             - value: playful
-              label: Verspielt
+              label: Verspielt – locker
 
-      - name: textColor
-        label: Schriftfarbe
-        type: string
-        description: "Farbe als Hex-Code, z. B. #F5F5F5"
+      - name: psColor
+        label: Farbe – PS
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
+            - value: "#F5F5F5"
+              label: Weiß
+            - value: "#B8B8B8"
+              label: Grau
 
       - name: accentColor
         label: Akzentfarbe
-        type: string
-        description: "Farbe für Überschrift und Details, z. B. #F12643"
+        type: select
+        options:
+          values:
+            - value: "#F12643"
+              label: Rot
+            - value: "#FF4F8B"
+              label: Pink
+            - value: "#B76CFF"
+              label: Lila
+            - value: "#4DA6FF"
+              label: Blau
+            - value: "#35D6D0"
+              label: Türkis
+            - value: "#D9B65B"
+              label: Gold
 
       - name: backgroundColor
-        label: Hintergrundfarbe
-        type: string
-        description: "Farbe des Seitenhintergrunds, z. B. #050505"
+        label: Seitenhintergrund
+        type: select
+        options:
+          values:
+            - value: "#050505"
+              label: Schwarz
+            - value: "#151515"
+              label: Anthrazit
+            - value: "#18070B"
+              label: Dunkelrot
+            - value: "#130A18"
+              label: Dunkellila
+            - value: "#07111C"
+              label: Dunkelblau
+            - value: "#071817"
+              label: Dunkeltürkis
+            - value: "#F2F2F2"
+              label: Hell
 
       - name: cardColor
         label: Kartenfarbe
-        type: string
-        description: "Farbe der Karte, z. B. #101010"
+        type: select
+        options:
+          values:
+            - value: "#101010"
+              label: Schwarz
+            - value: "#202020"
+              label: Anthrazit
+            - value: "#260A10"
+              label: Dunkelrot
+            - value: "#211126"
+              label: Dunkellila
+            - value: "#0D1A28"
+              label: Dunkelblau
+            - value: "#0B2422"
+              label: Dunkeltürkis
+            - value: "#FFFFFF"
+              label: Weiß
