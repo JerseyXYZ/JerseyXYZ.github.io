@@ -75,13 +75,21 @@ body {
 
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
 
   position: relative;
 
   padding: 42px 27px 30px;
 
   text-align: center;
+
+  /*
+    Der Rahmen bleibt fein und bekommt einen
+    sichtbaren Farbverlauf – ähnlich wie bei
+    Hoodie 2, nur mit stärkerem Glow außen.
+  */
+  border: 1px solid transparent;
+  border-radius: 26px;
 
   background:
     linear-gradient(
@@ -92,57 +100,62 @@ body {
         white 4%
       ),
       var(--card)
-    );
+    ) padding-box,
+
+    linear-gradient(
+      135deg,
+      color-mix(
+        in srgb,
+        var(--accent) 82%,
+        transparent
+      ),
+      color-mix(
+        in srgb,
+        var(--accent) 28%,
+        transparent
+      ) 48%,
+      color-mix(
+        in srgb,
+        var(--accent) 72%,
+        transparent
+      )
+    ) border-box;
 
   /*
-    Rahmen bewusst dezenter als
-    die vorherige Neon-Version.
-  */
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 55%,
-      transparent
-    );
-
-  border-radius: 26px;
-
-  /*
-    Glow liegt HINTER dem Rahmen.
-    Dadurch bleibt die Linie fein,
-    strahlt aber nach außen.
+    Kräftigerer Schein HINTER dem feinen Rahmen.
+    Die Linie selbst bleibt also elegant.
   */
   box-shadow:
-    0 0 8px
+    0 0 10px
       color-mix(
         in srgb,
-        var(--accent) 30%,
+        var(--accent) 52%,
         transparent
       ),
 
-    0 0 20px
+    0 0 24px
       color-mix(
         in srgb,
-        var(--accent) 26%,
+        var(--accent) 38%,
         transparent
       ),
 
-    0 0 42px
+    0 0 50px
       color-mix(
         in srgb,
-        var(--accent) 18%,
+        var(--accent) 27%,
         transparent
       ),
 
-    0 0 75px
+    0 0 90px
       color-mix(
         in srgb,
-        var(--accent) 10%,
+        var(--accent) 17%,
         transparent
       ),
 
-    0 28px 70px
-      rgba(0, 0, 0, .58);
+    0 30px 72px
+      rgba(0, 0, 0, .60);
 }
 
 
@@ -299,14 +312,14 @@ body {
 
       color-mix(
         in srgb,
-        var(--accent) 55%,
-        #111 45%
+        var(--accent) 72%,
+        #111 28%
       ),
 
       color-mix(
         in srgb,
-        var(--accent) 32%,
-        #111 68%
+        var(--accent) 48%,
+        #111 52%
       )
     );
 
@@ -349,7 +362,7 @@ body {
 
 .like-button:disabled {
   cursor: default;
-  opacity: .88;
+  opacity: 1;
 }
 
 
@@ -1045,7 +1058,7 @@ function updateLikeButton() {
 
   button.style.opacity =
     liked
-      ? ".88"
+      ? "1"
       : "1";
 }
 
