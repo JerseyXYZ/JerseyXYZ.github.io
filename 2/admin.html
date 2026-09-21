@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hoodie 2 – Statistik</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #f5f5f5;
+
+  background:
+    radial-gradient(circle at 10% 10%, #321018, transparent 35%),
+    radial-gradient(circle at 90% 90%, #25080e, transparent 35%),
+    #050505;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  background: #101010;
+
+  border:
+    1px solid rgba(241, 38, 67, .35);
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.6);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+h1 {
+  margin: 10px 0 5px;
+  font-size: 1.7rem;
+}
+
+.subtitle {
+  margin-bottom: 28px;
+
+  color: #aaa;
+  font-size: .9rem;
+}
+
+
+/* STATISTIK */
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  margin-bottom: 30px;
+}
+
+.stat {
+  padding: 20px 10px;
+
+  background: #181818;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius: 18px;
+}
+
+.stat-icon {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 1.4rem;
+}
+
+.stat-number {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: #aaa;
+
+  font-size: .82rem;
+}
+
+
+/* RESET */
+
+.reset-box {
+  padding-top: 25px;
+
+  border-top:
+    1px solid rgba(255,255,255,.10);
+}
+
+.reset-title {
+  margin-bottom: 7px;
+
+  font-weight: 700;
+}
+
+.reset-info {
+  margin: 0 auto 18px;
+
+  max-width: 330px;
+
+  color: #999;
+
+  font-size: .82rem;
+  line-height: 1.5;
+}
+
+input {
+  width: 100%;
+
+  margin-bottom: 10px;
+  padding: 13px 15px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #181818;
+  color: white;
+
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #f12643;
+}
+
+button {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #f12643;
+  color: white;
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+
+/* MELDUNG */
+
+.message {
+  min-height: 22px;
+
+  margin-top: 15px;
+
+  font-size: .88rem;
+}
+
+.message.success {
+  color: #6ddd96;
+}
+
+.message.error {
+  color: #ff7185;
+}
+</style>
+</head>
+
+
+<body>
+
+<main class="card">
+
+  <div class="icon">📊</div>
+
+  <h1>Hoodie 2</h1>
+
+  <div class="subtitle">
+    Statistik
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <span class="stat-icon">👀</span>
+
+      <span
+        id="views"
+        class="stat-number"
+      >
+        –
+      </span>
+
+      <span class="stat-label">
+        Aufrufe
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <span class="stat-icon">❤️</span>
+
+      <span
+        id="likes"
+        class="stat-number"
+      >
+        –
+      </span>
+
+      <span class="stat-label">
+        Danke
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="reset-box">
+
+    <div class="reset-title">
+      🔄 Zähler zurücksetzen
+    </div>
+
+    <p class="reset-info">
+      Setzt Aufrufe und Danke für diesen Hoodie auf 0.
+    </p>
+
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Passwort"
+      autocomplete="current-password"
+    >
+
+
+    <button
+      id="resetButton"
+      type="button"
+    >
+      Zähler zurücksetzen
+    </button>
+
+
+    <div
+      id="message"
+      class="message"
+    ></div>
+
+  </div>
+
+</main>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://wbxwzspkoriyjmcbomxn.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_7-e-CafdZaT2CMCDhDH0DQ_qZLKzDVq";
+
+const HOODIE =
+  "hoodie2";
+
+
+const headers = {
+
+  "apikey":
+    SUPABASE_KEY,
+
+  "Authorization":
+    "Bearer " + SUPABASE_KEY,
+
+  "Content-Type":
+    "application/json"
+};
+
+
+const viewsElement =
+  document.getElementById("views");
+
+const likesElement =
+  document.getElementById("likes");
+
+const passwordElement =
+  document.getElementById("password");
+
+const resetButton =
+  document.getElementById("resetButton");
+
+const messageElement =
+  document.getElementById("message");
+
+
+/* AKTUELLE STATISTIK */
+
+async function loadStats() {
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/hoodie_stats?hoodie=eq." +
+        HOODIE +
+        "&select=views,likes",
+
+        {
+          headers: headers,
+          cache: "no-store"
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (data.length) {
+
+      viewsElement.textContent =
+        data[0].views;
+
+      likesElement.textContent =
+        data[0].likes;
+    }
+
+
+  } catch (error) {
+
+    viewsElement.textContent = "?";
+    likesElement.textContent = "?";
+
+    showMessage(
+      "Statistik konnte nicht geladen werden.",
+      "error"
+    );
+  }
+}
+
+
+/* MELDUNG */
+
+function showMessage(text, type) {
+
+  messageElement.textContent =
+    text;
+
+  messageElement.className =
+    "message " + type;
+}
+
+
+/* ZURÜCKSETZEN */
+
+resetButton.addEventListener(
+  "click",
+
+  async function () {
+
+    const password =
+      passwordElement.value;
+
+
+    if (!password) {
+
+      showMessage(
+        "Bitte zuerst das Passwort eingeben.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    const confirmed =
+      confirm(
+        "Aufrufe und Danke wirklich auf 0 setzen?"
+      );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    resetButton.disabled = true;
+
+    resetButton.textContent =
+      "Wird zurückgesetzt …";
+
+
+    showMessage("", "");
+
+
+    try {
+
+      const response =
+        await fetch(
+
+          SUPABASE_URL +
+          "/rest/v1/rpc/hoodie_reset",
+
+          {
+            method: "POST",
+
+            headers: headers,
+
+            body: JSON.stringify({
+
+              p_hoodie:
+                HOODIE,
+
+              p_password:
+                password
+            })
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error();
+      }
+
+
+      const data =
+        await response.json();
+
+
+      viewsElement.textContent =
+        data.views ?? 0;
+
+      likesElement.textContent =
+        data.likes ?? 0;
+
+
+      passwordElement.value =
+        "";
+
+
+      showMessage(
+        "✓ Zähler wurden auf 0 zurückgesetzt.",
+        "success"
+      );
+
+
+    } catch (error) {
+
+      showMessage(
+        "Passwort falsch oder Zurücksetzen nicht möglich.",
+        "error"
+      );
+
+    } finally {
+
+      resetButton.disabled =
+        false;
+
+      resetButton.textContent =
+        "Zähler zurücksetzen";
+    }
+
+  }
+);
+
+
+/* ENTER IM PASSWORTFELD */
+
+passwordElement.addEventListener(
+  "keydown",
+
+  function(event) {
+
+    if (event.key === "Enter") {
+
+      resetButton.click();
+    }
+  }
+);
+
+
+/* BEIM ÖFFNEN LADEN */
+
+loadStats();
+
+</script>
+
+</body>
+</html>
