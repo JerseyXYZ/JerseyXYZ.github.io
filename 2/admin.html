@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hoodie 2 – Statistik</title>
+<title>Hoodie 2 – Verwaltung</title>
 
 <style>
 * {
@@ -38,21 +38,21 @@ body {
 .card {
   width: 100%;
   max-width: 480px;
-
   padding: 35px 25px;
 
   text-align: center;
 
   background: #101010;
 
-  border:
-    1px solid rgba(241, 38, 67, .35);
-
+  border: 1px solid rgba(241, 38, 67, .35);
   border-radius: 25px;
 
   box-shadow:
     0 25px 60px rgba(0,0,0,.6);
 }
+
+
+/* KOPF */
 
 .icon {
   font-size: 2rem;
@@ -71,6 +71,55 @@ h1 {
 }
 
 
+/* TEXT & DESIGN */
+
+.edit-box {
+  margin-bottom: 30px;
+}
+
+.edit-button {
+  display: block;
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1px solid rgba(241,38,67,.35);
+  border-radius: 14px;
+
+  background: #181818;
+  color: #f5f5f5;
+
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: .2s ease;
+}
+
+.edit-button:hover {
+  border-color: #f12643;
+  background: #211416;
+}
+
+.edit-info {
+  margin: 9px 0 0;
+
+  color: #888;
+  font-size: .78rem;
+}
+
+
+/* BEREICHSÜBERSCHRIFT */
+
+.section-title {
+  margin-bottom: 16px;
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+
+  font-weight: 700;
+}
+
+
 /* STATISTIK */
 
 .stats {
@@ -86,9 +135,7 @@ h1 {
 
   background: #181818;
 
-  border:
-    1px solid rgba(255,255,255,.08);
-
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 18px;
 }
 
@@ -121,8 +168,7 @@ h1 {
 .reset-box {
   padding-top: 25px;
 
-  border-top:
-    1px solid rgba(255,255,255,.10);
+  border-top: 1px solid rgba(255,255,255,.10);
 }
 
 .reset-title {
@@ -148,9 +194,7 @@ input {
   margin-bottom: 10px;
   padding: 13px 15px;
 
-  border:
-    1px solid rgba(255,255,255,.13);
-
+  border: 1px solid rgba(255,255,255,.13);
   border-radius: 12px;
 
   outline: none;
@@ -165,7 +209,7 @@ input:focus {
   border-color: #f12643;
 }
 
-button {
+.reset-button {
   width: 100%;
 
   padding: 13px 15px;
@@ -182,11 +226,11 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.reset-button:hover {
   filter: brightness(1.08);
 }
 
-button:disabled {
+.reset-button:disabled {
   opacity: .55;
   cursor: default;
 }
@@ -209,6 +253,22 @@ button:disabled {
 .message.error {
   color: #ff7185;
 }
+
+
+/* HANDY */
+
+@media (max-width: 430px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .card {
+    padding: 30px 19px;
+    border-radius: 22px;
+  }
+
+}
 </style>
 </head>
 
@@ -217,12 +277,45 @@ button:disabled {
 
 <main class="card">
 
-  <div class="icon">📊</div>
+  <!-- KOPF -->
 
-  <h1>Hoodie 2</h1>
+  <div class="icon">
+    ⚙️
+  </div>
+
+  <h1>
+    Hoodie 2
+  </h1>
 
   <div class="subtitle">
-    Statistik
+    Verwaltung
+  </div>
+
+
+  <!-- TEXT & DESIGN -->
+
+  <div class="edit-box">
+
+    <a
+      class="edit-button"
+      href="https://app.pagescms.org/jerseyxyz/jerseyxyz.github.io/main/file/page2"
+      target="_blank"
+      rel="noopener"
+    >
+      ✏️ Text & Design bearbeiten
+    </a>
+
+    <p class="edit-info">
+      Texte, Schriften und Farben ändern
+    </p>
+
+  </div>
+
+
+  <!-- STATISTIK -->
+
+  <div class="section-title">
+    📊 Statistik
   </div>
 
 
@@ -230,7 +323,9 @@ button:disabled {
 
     <div class="stat">
 
-      <span class="stat-icon">👀</span>
+      <span class="stat-icon">
+        👀
+      </span>
 
       <span
         id="views"
@@ -248,7 +343,9 @@ button:disabled {
 
     <div class="stat">
 
-      <span class="stat-icon">❤️</span>
+      <span class="stat-icon">
+        ❤️
+      </span>
 
       <span
         id="likes"
@@ -265,6 +362,8 @@ button:disabled {
 
   </div>
 
+
+  <!-- RESET -->
 
   <div class="reset-box">
 
@@ -287,6 +386,7 @@ button:disabled {
 
     <button
       id="resetButton"
+      class="reset-button"
       type="button"
     >
       Zähler zurücksetzen
@@ -304,6 +404,10 @@ button:disabled {
 
 
 <script>
+
+/* ==========================================
+   SUPABASE
+   ========================================== */
 
 const SUPABASE_URL =
   "https://wbxwzspkoriyjmcbomxn.supabase.co";
@@ -328,6 +432,10 @@ const headers = {
 };
 
 
+/* ==========================================
+   ELEMENTE
+   ========================================== */
+
 const viewsElement =
   document.getElementById("views");
 
@@ -344,7 +452,9 @@ const messageElement =
   document.getElementById("message");
 
 
-/* AKTUELLE STATISTIK */
+/* ==========================================
+   STATISTIK LADEN
+   ========================================== */
 
 async function loadStats() {
 
@@ -366,7 +476,9 @@ async function loadStats() {
 
 
     if (!response.ok) {
-      throw new Error();
+      throw new Error(
+        "Statistik konnte nicht geladen werden."
+      );
     }
 
 
@@ -386,8 +498,12 @@ async function loadStats() {
 
   } catch (error) {
 
-    viewsElement.textContent = "?";
-    likesElement.textContent = "?";
+    viewsElement.textContent =
+      "?";
+
+    likesElement.textContent =
+      "?";
+
 
     showMessage(
       "Statistik konnte nicht geladen werden.",
@@ -397,7 +513,9 @@ async function loadStats() {
 }
 
 
-/* MELDUNG */
+/* ==========================================
+   MELDUNG
+   ========================================== */
 
 function showMessage(text, type) {
 
@@ -409,7 +527,9 @@ function showMessage(text, type) {
 }
 
 
-/* ZURÜCKSETZEN */
+/* ==========================================
+   ZÄHLER ZURÜCKSETZEN
+   ========================================== */
 
 resetButton.addEventListener(
   "click",
@@ -442,11 +562,11 @@ resetButton.addEventListener(
     }
 
 
-    resetButton.disabled = true;
+    resetButton.disabled =
+      true;
 
     resetButton.textContent =
       "Wird zurückgesetzt …";
-
 
     showMessage("", "");
 
@@ -477,8 +597,9 @@ resetButton.addEventListener(
 
 
       if (!response.ok) {
-
-        throw new Error();
+        throw new Error(
+          "Reset fehlgeschlagen."
+        );
       }
 
 
@@ -510,6 +631,7 @@ resetButton.addEventListener(
         "error"
       );
 
+
     } finally {
 
       resetButton.disabled =
@@ -523,7 +645,9 @@ resetButton.addEventListener(
 );
 
 
-/* ENTER IM PASSWORTFELD */
+/* ==========================================
+   ENTER IM PASSWORTFELD
+   ========================================== */
 
 passwordElement.addEventListener(
   "keydown",
@@ -538,7 +662,9 @@ passwordElement.addEventListener(
 );
 
 
-/* BEIM ÖFFNEN LADEN */
+/* ==========================================
+   START
+   ========================================== */
 
 loadStats();
 
