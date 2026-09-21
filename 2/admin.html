@@ -11,14 +11,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --red: #f12643;
+  --bg: #050505;
+  --card: #101010;
+  --field: #181818;
+  --border: rgba(255,255,255,.11);
+  --muted: #999;
+}
+
 body {
   margin: 0;
   min-height: 100svh;
   padding: 20px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   font-family:
     -apple-system,
@@ -32,27 +37,26 @@ body {
   background:
     radial-gradient(circle at 10% 10%, #321018, transparent 35%),
     radial-gradient(circle at 90% 90%, #25080e, transparent 35%),
-    #050505;
+    var(--bg);
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 620px;
+  margin: 30px auto;
 }
 
 .card {
-  width: 100%;
-  max-width: 480px;
-  padding: 35px 25px;
-
-  text-align: center;
-
-  background: #101010;
-
-  border: 1px solid rgba(241, 38, 67, .35);
+  padding: 32px 25px;
+  background: var(--card);
+  border: 1px solid rgba(241,38,67,.32);
   border-radius: 25px;
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.6);
+  box-shadow: 0 25px 60px rgba(0,0,0,.55);
 }
 
-
-/* KOPF */
+.center {
+  text-align: center;
+}
 
 .icon {
   font-size: 2rem;
@@ -64,59 +68,144 @@ h1 {
 }
 
 .subtitle {
-  margin-bottom: 28px;
-
+  margin-bottom: 25px;
   color: #aaa;
   font-size: .9rem;
 }
 
 
-/* TEXT & DESIGN */
+/* LOGIN */
 
-.edit-box {
-  margin-bottom: 30px;
+#adminArea {
+  display: none;
 }
 
-.edit-button {
-  display: block;
-  width: 100%;
-
-  padding: 15px;
-
-  border: 1px solid rgba(241,38,67,.35);
-  border-radius: 14px;
-
-  background: #181818;
-  color: #f5f5f5;
-
-  text-decoration: none;
-  font-weight: 700;
-
-  transition: .2s ease;
-}
-
-.edit-button:hover {
-  border-color: #f12643;
-  background: #211416;
-}
-
-.edit-info {
-  margin: 9px 0 0;
-
-  color: #888;
-  font-size: .78rem;
+.login-info {
+  max-width: 340px;
+  margin: 0 auto 20px;
+  color: #999;
+  font-size: .85rem;
+  line-height: 1.5;
 }
 
 
-/* BEREICHSÜBERSCHRIFT */
+/* BEREICHE */
+
+.section {
+  margin-top: 28px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+}
+
+.section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
 
 .section-title {
-  margin-bottom: 16px;
-  padding-top: 25px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  font-weight: 750;
+}
 
-  border-top: 1px solid rgba(255,255,255,.10);
 
-  font-weight: 700;
+/* FELDER */
+
+.field {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #ccc;
+  font-size: .82rem;
+  font-weight: 650;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  outline: none;
+
+  background: var(--field);
+  color: #f5f5f5;
+
+  font: inherit;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--red);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+
+/* FARBFELDER */
+
+.color-row {
+  display: grid;
+  grid-template-columns: 1fr 58px;
+  gap: 10px;
+}
+
+input[type="color"] {
+  height: 45px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+
+/* BUTTONS */
+
+button {
+  width: 100%;
+  padding: 13px 15px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: var(--red);
+  color: white;
+
+  font: inherit;
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+.secondary-button {
+  background: #242424;
+  border: 1px solid var(--border);
 }
 
 
@@ -126,148 +215,91 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-
-  margin-bottom: 30px;
 }
 
 .stat {
-  padding: 20px 10px;
+  padding: 18px 10px;
 
-  background: #181818;
+  text-align: center;
 
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 18px;
+  background: var(--field);
+  border: 1px solid var(--border);
+  border-radius: 16px;
 }
 
 .stat-icon {
   display: block;
-
-  margin-bottom: 6px;
-
-  font-size: 1.4rem;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
 }
 
 .stat-number {
   display: block;
-
-  margin-bottom: 3px;
-
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 750;
 }
 
 .stat-label {
-  color: #aaa;
-
-  font-size: .82rem;
-}
-
-
-/* RESET */
-
-.reset-box {
-  padding-top: 25px;
-
-  border-top: 1px solid rgba(255,255,255,.10);
-}
-
-.reset-title {
-  margin-bottom: 7px;
-
-  font-weight: 700;
-}
-
-.reset-info {
-  margin: 0 auto 18px;
-
-  max-width: 330px;
-
   color: #999;
-
-  font-size: .82rem;
-  line-height: 1.5;
-}
-
-input {
-  width: 100%;
-
-  margin-bottom: 10px;
-  padding: 13px 15px;
-
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 12px;
-
-  outline: none;
-
-  background: #181818;
-  color: white;
-
-  font-size: 1rem;
-}
-
-input:focus {
-  border-color: #f12643;
-}
-
-.reset-button {
-  width: 100%;
-
-  padding: 13px 15px;
-
-  border: 0;
-  border-radius: 12px;
-
-  background: #f12643;
-  color: white;
-
-  font: inherit;
-  font-weight: 700;
-
-  cursor: pointer;
-}
-
-.reset-button:hover {
-  filter: brightness(1.08);
-}
-
-.reset-button:disabled {
-  opacity: .55;
-  cursor: default;
+  font-size: .8rem;
 }
 
 
-/* MELDUNG */
+/* MELDUNGEN */
 
 .message {
-  min-height: 22px;
+  min-height: 20px;
+  margin-top: 13px;
 
-  margin-top: 15px;
-
-  font-size: .88rem;
+  text-align: center;
+  font-size: .85rem;
 }
 
-.message.success {
+.success {
   color: #6ddd96;
 }
 
-.message.error {
+.error {
   color: #ff7185;
 }
 
 
-/* HANDY */
+/* TRENNER INNERHALB TEXTBEREICHE */
 
-@media (max-width: 430px) {
+.text-block {
+  margin-bottom: 25px;
+  padding-bottom: 8px;
+}
+
+.text-block-title {
+  margin-bottom: 12px;
+
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 750;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
 
   body {
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .wrapper {
+    margin: 10px auto;
   }
 
   .card {
-    padding: 30px 19px;
-    border-radius: 22px;
+    padding: 28px 18px;
+    border-radius: 21px;
   }
 
+  .row {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -275,138 +307,572 @@ input:focus {
 
 <body>
 
-<main class="card">
+<div class="wrapper">
 
-  <!-- KOPF -->
+  <!-- ======================================
+       LOGIN
+       ====================================== -->
 
-  <div class="icon">
-    ⚙️
-  </div>
+  <main id="loginArea" class="card center">
 
-  <h1>
-    Hoodie 2
-  </h1>
+    <div class="icon">🔐</div>
 
-  <div class="subtitle">
-    Verwaltung
-  </div>
+    <h1>Hoodie 2</h1>
 
+    <div class="subtitle">
+      Verwaltung
+    </div>
 
-  <!-- TEXT & DESIGN -->
-
-  <div class="edit-box">
-
-    <a
-      class="edit-button"
-      href="https://app.pagescms.org/jerseyxyz/jerseyxyz.github.io/main/file/page2"
-      target="_blank"
-      rel="noopener"
-    >
-      ✏️ Text & Design bearbeiten
-    </a>
-
-    <p class="edit-info">
-      Texte, Schriften und Farben ändern
+    <p class="login-info">
+      Bitte Passwort eingeben, um Texte,
+      Design und Statistik zu verwalten.
     </p>
 
-  </div>
+    <div class="field">
 
-
-  <!-- STATISTIK -->
-
-  <div class="section-title">
-    📊 Statistik
-  </div>
-
-
-  <div class="stats">
-
-    <div class="stat">
-
-      <span class="stat-icon">
-        👀
-      </span>
-
-      <span
-        id="views"
-        class="stat-number"
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Passwort"
+        autocomplete="current-password"
       >
-        –
-      </span>
-
-      <span class="stat-label">
-        Aufrufe
-      </span>
 
     </div>
-
-
-    <div class="stat">
-
-      <span class="stat-icon">
-        ❤️
-      </span>
-
-      <span
-        id="likes"
-        class="stat-number"
-      >
-        –
-      </span>
-
-      <span class="stat-label">
-        Danke
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- RESET -->
-
-  <div class="reset-box">
-
-    <div class="reset-title">
-      🔄 Zähler zurücksetzen
-    </div>
-
-    <p class="reset-info">
-      Setzt Aufrufe und Danke für diesen Hoodie auf 0.
-    </p>
-
-
-    <input
-      id="password"
-      type="password"
-      placeholder="Passwort"
-      autocomplete="current-password"
-    >
-
 
     <button
-      id="resetButton"
-      class="reset-button"
+      id="loginButton"
       type="button"
     >
-      Zähler zurücksetzen
+      Anmelden
     </button>
 
-
     <div
-      id="message"
+      id="loginMessage"
       class="message"
     ></div>
 
-  </div>
+  </main>
 
-</main>
+
+  <!-- ======================================
+       VERWALTUNG
+       ====================================== -->
+
+  <main id="adminArea" class="card">
+
+    <div class="center">
+
+      <div class="icon">⚙️</div>
+
+      <h1>Hoodie 2</h1>
+
+      <div class="subtitle">
+        Verwaltung
+      </div>
+
+    </div>
+
+
+    <!-- ==================================
+         INHALTE
+         ================================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+        ✏️ Text & Design
+      </div>
+
+
+      <!-- KLEINE ÜBERSCHRIFT -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          🟥 Kleine Überschrift
+        </div>
+
+        <div class="field">
+
+          <label for="headline">
+            Text
+          </label>
+
+          <input
+            id="headline"
+            type="text"
+          >
+
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="headlineFont">
+              Schriftart
+            </label>
+
+            <select id="headlineFont">
+
+              <option value="modern">
+                Modern
+              </option>
+
+              <option value="elegant">
+                Elegant
+              </option>
+
+              <option value="classic">
+                Klassisch
+              </option>
+
+              <option value="handwritten">
+                Handschrift
+              </option>
+
+              <option value="playful">
+                Verspielt
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="headlineColor">
+              Farbe
+            </label>
+
+            <input
+              id="headlineColor"
+              type="color"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GROSSE ÜBERSCHRIFT -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          ⬜ Große Überschrift
+        </div>
+
+        <div class="field">
+
+          <label for="title">
+            Text
+          </label>
+
+          <input
+            id="title"
+            type="text"
+          >
+
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="titleFont">
+              Schriftart
+            </label>
+
+            <select id="titleFont">
+
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="titleColor">
+              Farbe
+            </label>
+
+            <input
+              id="titleColor"
+              type="color"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- HAUPTTEXT -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          📝 Haupttext
+        </div>
+
+        <div class="field">
+
+          <label for="bodyText">
+            Text
+          </label>
+
+          <textarea id="bodyText"></textarea>
+
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="textFont">
+              Schriftart
+            </label>
+
+            <select id="textFont">
+
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="textColor">
+              Farbe
+            </label>
+
+            <input
+              id="textColor"
+              type="color"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GRUSS -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          👋 Grußzeile
+        </div>
+
+        <div class="field">
+
+          <label for="greeting">
+            Text
+          </label>
+
+          <input
+            id="greeting"
+            type="text"
+          >
+
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="greetingFont">
+              Schriftart
+            </label>
+
+            <select id="greetingFont">
+
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="greetingColor">
+              Farbe
+            </label>
+
+            <input
+              id="greetingColor"
+              type="color"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PS -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          ❤️ PS
+        </div>
+
+        <div class="field">
+
+          <label for="ps">
+            Text
+          </label>
+
+          <input
+            id="ps"
+            type="text"
+          >
+
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+
+            <label for="psFont">
+              Schriftart
+            </label>
+
+            <select id="psFont">
+
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+
+            </select>
+
+          </div>
+
+          <div class="field">
+
+            <label for="psColor">
+              Farbe
+            </label>
+
+            <input
+              id="psColor"
+              type="color"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SEITENDESIGN -->
+
+      <div class="text-block">
+
+        <div class="text-block-title">
+          🎨 Seitendesign
+        </div>
+
+
+        <div class="field">
+
+          <label for="accentColor">
+            Akzentfarbe
+          </label>
+
+          <input
+            id="accentColor"
+            type="color"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="backgroundColor">
+            Seitenhintergrund
+          </label>
+
+          <input
+            id="backgroundColor"
+            type="color"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="cardColor">
+            Kartenfarbe
+          </label>
+
+          <input
+            id="cardColor"
+            type="color"
+          >
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="saveButton"
+        type="button"
+      >
+        💾 Änderungen speichern
+      </button>
+
+      <div
+        id="saveMessage"
+        class="message"
+      ></div>
+
+    </section>
+
+
+    <!-- ==================================
+         STATISTIK
+         ================================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+        📊 Statistik
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <span class="stat-icon">
+            👀
+          </span>
+
+          <span
+            id="views"
+            class="stat-number"
+          >
+            –
+          </span>
+
+          <span class="stat-label">
+            Aufrufe
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span class="stat-icon">
+            ❤️
+          </span>
+
+          <span
+            id="likes"
+            class="stat-number"
+          >
+            –
+          </span>
+
+          <span class="stat-label">
+            Danke
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================
+         RESET
+         ================================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+        🔄 Zähler zurücksetzen
+      </div>
+
+      <p
+        style="
+          color:#999;
+          font-size:.82rem;
+          line-height:1.5;
+        "
+      >
+        Setzt Aufrufe und Danke für Hoodie 2 auf 0.
+      </p>
+
+      <button
+        id="resetButton"
+        class="secondary-button"
+        type="button"
+      >
+        Zähler zurücksetzen
+      </button>
+
+      <div
+        id="resetMessage"
+        class="message"
+      ></div>
+
+    </section>
+
+
+    <!-- ABMELDEN -->
+
+    <section class="section">
+
+      <button
+        id="logoutButton"
+        class="secondary-button"
+        type="button"
+      >
+        🔒 Abmelden
+      </button>
+
+    </section>
+
+  </main>
+
+</div>
 
 
 <script>
 
 /* ==========================================
-   SUPABASE
+   EINSTELLUNGEN
    ========================================== */
 
 const SUPABASE_URL =
@@ -432,28 +898,442 @@ const headers = {
 };
 
 
+/* Passwort bleibt nur während
+   dieser geöffneten Seite im Speicher. */
+
+let adminPassword = "";
+
+
 /* ==========================================
    ELEMENTE
    ========================================== */
 
-const viewsElement =
-  document.getElementById("views");
+const loginArea =
+  document.getElementById("loginArea");
 
-const likesElement =
-  document.getElementById("likes");
+const adminArea =
+  document.getElementById("adminArea");
 
-const passwordElement =
-  document.getElementById("password");
+const loginPassword =
+  document.getElementById("loginPassword");
+
+const loginButton =
+  document.getElementById("loginButton");
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+const saveButton =
+  document.getElementById("saveButton");
+
+const saveMessage =
+  document.getElementById("saveMessage");
 
 const resetButton =
   document.getElementById("resetButton");
 
-const messageElement =
-  document.getElementById("message");
+const resetMessage =
+  document.getElementById("resetMessage");
+
+const logoutButton =
+  document.getElementById("logoutButton");
 
 
 /* ==========================================
-   STATISTIK LADEN
+   MELDUNGEN
+   ========================================== */
+
+function message(element, text, type = "") {
+
+  element.textContent = text;
+
+  element.className =
+    "message " + type;
+}
+
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+async function login() {
+
+  const password =
+    loginPassword.value;
+
+
+  if (!password) {
+
+    message(
+      loginMessage,
+      "Bitte Passwort eingeben.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  loginButton.disabled = true;
+
+  loginButton.textContent =
+    "Wird geprüft …";
+
+  message(loginMessage, "");
+
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/rpc/hoodie_admin_login",
+
+        {
+          method: "POST",
+
+          headers: headers,
+
+          body: JSON.stringify({
+
+            p_hoodie:
+              HOODIE,
+
+            p_password:
+              password
+          })
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const valid =
+      await response.json();
+
+
+    if (valid !== true) {
+
+      message(
+        loginMessage,
+        "Passwort ist nicht korrekt.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    adminPassword =
+      password;
+
+    loginPassword.value =
+      "";
+
+    loginArea.style.display =
+      "none";
+
+    adminArea.style.display =
+      "block";
+
+
+    await Promise.all([
+      loadContent(),
+      loadStats()
+    ]);
+
+
+  } catch (error) {
+
+    message(
+      loginMessage,
+      "Anmeldung konnte nicht durchgeführt werden.",
+      "error"
+    );
+
+
+  } finally {
+
+    loginButton.disabled =
+      false;
+
+    loginButton.textContent =
+      "Anmelden";
+  }
+}
+
+
+loginButton.addEventListener(
+  "click",
+  login
+);
+
+
+loginPassword.addEventListener(
+  "keydown",
+
+  function(event) {
+
+    if (event.key === "Enter") {
+      login();
+    }
+  }
+);
+
+
+/* ==========================================
+   INHALTE LADEN
+   ========================================== */
+
+async function loadContent() {
+
+  try {
+
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/hoodie_content" +
+        "?hoodie=eq." +
+        HOODIE +
+        "&select=*",
+
+        {
+          headers: headers,
+          cache: "no-store"
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (!data.length) {
+      throw new Error();
+    }
+
+
+    const c =
+      data[0];
+
+
+    document.getElementById("headline").value =
+      c.headline || "";
+
+    document.getElementById("headlineFont").value =
+      c.headline_font || "modern";
+
+    document.getElementById("headlineColor").value =
+      c.headline_color || "#F12643";
+
+
+    document.getElementById("title").value =
+      c.title || "";
+
+    document.getElementById("titleFont").value =
+      c.title_font || "modern";
+
+    document.getElementById("titleColor").value =
+      c.title_color || "#F5F5F5";
+
+
+    document.getElementById("bodyText").value =
+      c.body_text || "";
+
+    document.getElementById("textFont").value =
+      c.text_font || "modern";
+
+    document.getElementById("textColor").value =
+      c.text_color || "#F5F5F5";
+
+
+    document.getElementById("greeting").value =
+      c.greeting || "";
+
+    document.getElementById("greetingFont").value =
+      c.greeting_font || "modern";
+
+    document.getElementById("greetingColor").value =
+      c.greeting_color || "#B8B8B8";
+
+
+    document.getElementById("ps").value =
+      c.ps || "";
+
+    document.getElementById("psFont").value =
+      c.ps_font || "modern";
+
+    document.getElementById("psColor").value =
+      c.ps_color || "#F5F5F5";
+
+
+    document.getElementById("accentColor").value =
+      c.accent_color || "#F12643";
+
+    document.getElementById("backgroundColor").value =
+      c.background_color || "#050505";
+
+    document.getElementById("cardColor").value =
+      c.card_color || "#101010";
+
+
+  } catch (error) {
+
+    message(
+      saveMessage,
+      "Inhalte konnten nicht geladen werden.",
+      "error"
+    );
+  }
+}
+
+
+/* ==========================================
+   INHALTE SPEICHERN
+   ========================================== */
+
+saveButton.addEventListener(
+  "click",
+
+  async function() {
+
+    saveButton.disabled =
+      true;
+
+    saveButton.textContent =
+      "Wird gespeichert …";
+
+    message(saveMessage, "");
+
+
+    const payload = {
+
+      p_hoodie:
+        HOODIE,
+
+      p_password:
+        adminPassword,
+
+      p_headline:
+        document.getElementById("headline").value,
+
+      p_headline_font:
+        document.getElementById("headlineFont").value,
+
+      p_headline_color:
+        document.getElementById("headlineColor").value,
+
+      p_title:
+        document.getElementById("title").value,
+
+      p_title_font:
+        document.getElementById("titleFont").value,
+
+      p_title_color:
+        document.getElementById("titleColor").value,
+
+      p_body_text:
+        document.getElementById("bodyText").value,
+
+      p_text_font:
+        document.getElementById("textFont").value,
+
+      p_text_color:
+        document.getElementById("textColor").value,
+
+      p_greeting:
+        document.getElementById("greeting").value,
+
+      p_greeting_font:
+        document.getElementById("greetingFont").value,
+
+      p_greeting_color:
+        document.getElementById("greetingColor").value,
+
+      p_ps:
+        document.getElementById("ps").value,
+
+      p_ps_font:
+        document.getElementById("psFont").value,
+
+      p_ps_color:
+        document.getElementById("psColor").value,
+
+      p_accent_color:
+        document.getElementById("accentColor").value,
+
+      p_background_color:
+        document.getElementById("backgroundColor").value,
+
+      p_card_color:
+        document.getElementById("cardColor").value
+    };
+
+
+    try {
+
+      const response =
+        await fetch(
+
+          SUPABASE_URL +
+          "/rest/v1/rpc/hoodie_save_content",
+
+          {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(payload)
+          }
+        );
+
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+
+      await response.json();
+
+
+      message(
+        saveMessage,
+        "✓ Änderungen gespeichert.",
+        "success"
+      );
+
+
+    } catch (error) {
+
+      message(
+        saveMessage,
+        "Speichern nicht möglich.",
+        "error"
+      );
+
+
+    } finally {
+
+      saveButton.disabled =
+        false;
+
+      saveButton.textContent =
+        "💾 Änderungen speichern";
+    }
+  }
+);
+
+
+/* ==========================================
+   STATISTIK
    ========================================== */
 
 async function loadStats() {
@@ -464,7 +1344,8 @@ async function loadStats() {
       await fetch(
 
         SUPABASE_URL +
-        "/rest/v1/hoodie_stats?hoodie=eq." +
+        "/rest/v1/hoodie_stats" +
+        "?hoodie=eq." +
         HOODIE +
         "&select=views,likes",
 
@@ -476,9 +1357,7 @@ async function loadStats() {
 
 
     if (!response.ok) {
-      throw new Error(
-        "Statistik konnte nicht geladen werden."
-      );
+      throw new Error();
     }
 
 
@@ -488,68 +1367,33 @@ async function loadStats() {
 
     if (data.length) {
 
-      viewsElement.textContent =
+      document.getElementById("views").textContent =
         data[0].views;
 
-      likesElement.textContent =
+      document.getElementById("likes").textContent =
         data[0].likes;
     }
 
 
   } catch (error) {
 
-    viewsElement.textContent =
+    document.getElementById("views").textContent =
       "?";
 
-    likesElement.textContent =
+    document.getElementById("likes").textContent =
       "?";
-
-
-    showMessage(
-      "Statistik konnte nicht geladen werden.",
-      "error"
-    );
   }
 }
 
 
 /* ==========================================
-   MELDUNG
-   ========================================== */
-
-function showMessage(text, type) {
-
-  messageElement.textContent =
-    text;
-
-  messageElement.className =
-    "message " + type;
-}
-
-
-/* ==========================================
-   ZÄHLER ZURÜCKSETZEN
+   RESET
    ========================================== */
 
 resetButton.addEventListener(
   "click",
 
-  async function () {
-
-    const password =
-      passwordElement.value;
-
-
-    if (!password) {
-
-      showMessage(
-        "Bitte zuerst das Passwort eingeben.",
-        "error"
-      );
-
-      return;
-    }
-
+  async function() {
 
     const confirmed =
       confirm(
@@ -568,7 +1412,7 @@ resetButton.addEventListener(
     resetButton.textContent =
       "Wird zurückgesetzt …";
 
-    showMessage("", "");
+    message(resetMessage, "");
 
 
     try {
@@ -590,16 +1434,14 @@ resetButton.addEventListener(
                 HOODIE,
 
               p_password:
-                password
+                adminPassword
             })
           }
         );
 
 
       if (!response.ok) {
-        throw new Error(
-          "Reset fehlgeschlagen."
-        );
+        throw new Error();
       }
 
 
@@ -607,27 +1449,25 @@ resetButton.addEventListener(
         await response.json();
 
 
-      viewsElement.textContent =
+      document.getElementById("views").textContent =
         data.views ?? 0;
 
-      likesElement.textContent =
+      document.getElementById("likes").textContent =
         data.likes ?? 0;
 
 
-      passwordElement.value =
-        "";
-
-
-      showMessage(
-        "✓ Zähler wurden auf 0 zurückgesetzt.",
+      message(
+        resetMessage,
+        "✓ Zähler wurden zurückgesetzt.",
         "success"
       );
 
 
     } catch (error) {
 
-      showMessage(
-        "Passwort falsch oder Zurücksetzen nicht möglich.",
+      message(
+        resetMessage,
+        "Zurücksetzen nicht möglich.",
         "error"
       );
 
@@ -640,33 +1480,36 @@ resetButton.addEventListener(
       resetButton.textContent =
         "Zähler zurücksetzen";
     }
-
   }
 );
 
 
 /* ==========================================
-   ENTER IM PASSWORTFELD
+   ABMELDEN
    ========================================== */
 
-passwordElement.addEventListener(
-  "keydown",
+logoutButton.addEventListener(
+  "click",
 
-  function(event) {
+  function() {
 
-    if (event.key === "Enter") {
+    adminPassword =
+      "";
 
-      resetButton.click();
-    }
+    adminArea.style.display =
+      "none";
+
+    loginArea.style.display =
+      "block";
+
+    message(loginMessage, "");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 );
-
-
-/* ==========================================
-   START
-   ========================================== */
-
-loadStats();
 
 </script>
 
