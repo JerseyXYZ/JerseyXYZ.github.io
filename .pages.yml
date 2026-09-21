@@ -3,6 +3,7 @@ content:
     label: Hoodie 2
     type: file
     path: 2/content.json
+
     fields:
       - name: headline
         label: Kleine Überschrift
@@ -23,3 +24,39 @@ content:
       - name: ps
         label: PS
         type: string
+
+      - name: font
+        label: Schriftart
+        type: select
+        options:
+          values:
+            - value: modern
+              label: Modern
+            - value: elegant
+              label: Elegant
+            - value: classic
+              label: Klassisch
+            - value: handwritten
+              label: Handschriftlich
+            - value: playful
+              label: Verspielt
+
+      - name: textColor
+        label: Schriftfarbe
+        type: string
+        description: "Farbe als Hex-Code, z. B. #F5F5F5"
+
+      - name: accentColor
+        label: Akzentfarbe
+        type: string
+        description: "Farbe für Überschrift und Details, z. B. #F12643"
+
+      - name: backgroundColor
+        label: Hintergrundfarbe
+        type: string
+        description: "Farbe des Seitenhintergrunds, z. B. #050505"
+
+      - name: cardColor
+        label: Kartenfarbe
+        type: string
+        description: "Farbe der Karte, z. B. #101010"
