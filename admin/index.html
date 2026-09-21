@@ -48,20 +48,15 @@ body {
 
 .card {
   padding: 30px 22px;
-
   background: #101010;
-
   border: 1px solid rgba(241,38,67,.28);
   border-radius: 24px;
-
   box-shadow: 0 25px 60px rgba(0,0,0,.55);
 }
 
 .center { text-align: center; }
 
-.logo {
-  font-size: 2.2rem;
-}
+.logo { font-size: 2.2rem; }
 
 h1 {
   margin: 8px 0 5px;
@@ -74,17 +69,13 @@ h1 {
   font-size: .88rem;
 }
 
-
-/* LOGIN */
-
 #adminArea {
   display: none;
 }
 
 .login-info {
-  max-width: 360px;
+  max-width: 370px;
   margin: 0 auto 20px;
-
   color: var(--muted);
   font-size: .85rem;
   line-height: 1.5;
@@ -94,13 +85,11 @@ h1 {
   display: flex;
   align-items: center;
   gap: 9px;
-
   margin: 5px 0 20px;
-
   color: #bbb;
   font-size: .84rem;
-
   cursor: pointer;
+  text-align: left;
 }
 
 .remember input {
@@ -109,9 +98,6 @@ h1 {
   margin: 0;
 }
 
-
-/* HEADER VERWALTUNG */
-
 .admin-header {
   text-align: center;
   margin-bottom: 25px;
@@ -119,59 +105,52 @@ h1 {
 
 .hoodie-badge {
   display: inline-block;
-
   margin-top: 8px;
   padding: 6px 12px;
-
   border: 1px solid rgba(241,38,67,.3);
   border-radius: 20px;
-
   color: #ddd;
   background: #181818;
-
   font-size: .78rem;
 }
 
-
-/* BEREICHE */
+.device-badge {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(74, 222, 128, .10);
+  color: #79e59d;
+  font-size: .7rem;
+}
 
 .section {
   margin-top: 28px;
   padding-top: 26px;
-
   border-top: 1px solid var(--border);
 }
 
 .section-title {
   margin-bottom: 18px;
-
   font-size: 1rem;
   font-weight: 750;
 }
 
-
-/* LIVE-VORSCHAU */
-
 .preview-shell {
   padding: 12px;
-
   border: 1px solid var(--border);
   border-radius: 20px;
-
   background: #080808;
 }
 
 .preview {
   position: relative;
   overflow: hidden;
-
   padding: 30px 18px 24px;
-
   text-align: center;
-
   border-radius: 17px;
   border: 1px solid rgba(241,38,67,.3);
-
   background: #101010;
 }
 
@@ -186,17 +165,13 @@ h1 {
 .preview-line {
   width: 32px;
   height: 2px;
-
   margin: 13px auto;
-
   border-radius: 5px;
-
   background: var(--preview-accent, #f12643);
 }
 
 .preview-title {
   margin: 15px 0;
-
   font-size: 1.8rem;
   line-height: 1.08;
   font-weight: 300;
@@ -210,14 +185,12 @@ h1 {
 
 .preview-greeting {
   margin-top: 18px;
-
   font-size: .78rem;
   font-style: italic;
 }
 
 .preview-ps {
   margin-top: 10px;
-
   font-size: .8rem;
 }
 
@@ -228,15 +201,10 @@ h1 {
 
 .preview-note {
   margin: 10px 0 0;
-
   text-align: center;
   color: #777;
-
   font-size: .72rem;
 }
-
-
-/* FORMULAR */
 
 .group {
   margin-top: 26px;
@@ -248,7 +216,6 @@ h1 {
 
 .group-title {
   margin-bottom: 13px;
-
   font-size: .92rem;
   font-weight: 750;
 }
@@ -259,11 +226,8 @@ h1 {
 
 label {
   display: block;
-
   margin-bottom: 6px;
-
   color: #bbb;
-
   font-size: .79rem;
   font-weight: 650;
 }
@@ -272,17 +236,12 @@ input,
 textarea,
 select {
   width: 100%;
-
   padding: 12px 13px;
-
   border: 1px solid var(--border);
   border-radius: 11px;
-
   outline: none;
-
   background: var(--field);
   color: var(--text);
-
   font: inherit;
 }
 
@@ -304,9 +263,6 @@ select:focus {
   gap: 10px;
 }
 
-
-/* FARBE */
-
 .color-field {
   display: grid;
   grid-template-columns: 60px 1fr;
@@ -323,23 +279,15 @@ input[type="color"] {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-
-/* BUTTON */
-
 button {
   width: 100%;
-
   padding: 13px 15px;
-
   border: 0;
   border-radius: 12px;
-
   background: var(--accent);
   color: white;
-
   font: inherit;
   font-weight: 750;
-
   cursor: pointer;
 }
 
@@ -357,8 +305,11 @@ button:disabled {
   border: 1px solid var(--border);
 }
 
-
-/* STATISTIK */
+.danger {
+  background: #241114;
+  border: 1px solid rgba(241,38,67,.25);
+  color: #ff8495;
+}
 
 .stats {
   display: grid;
@@ -368,26 +319,20 @@ button:disabled {
 
 .stat {
   padding: 18px 10px;
-
   text-align: center;
-
   border: 1px solid var(--border);
   border-radius: 16px;
-
   background: var(--field);
 }
 
 .stat-icon {
   display: block;
-
   margin-bottom: 4px;
-
   font-size: 1.3rem;
 }
 
 .stat-number {
   display: block;
-
   font-size: 1.7rem;
   font-weight: 750;
 }
@@ -397,14 +342,9 @@ button:disabled {
   font-size: .78rem;
 }
 
-
-/* MELDUNGEN */
-
 .message {
   min-height: 20px;
-
   margin-top: 12px;
-
   text-align: center;
   font-size: .84rem;
 }
@@ -412,15 +352,21 @@ button:disabled {
 .success { color: #6ddd96; }
 .error { color: #ff7185; }
 
+.loading {
+  display: none;
+  text-align: center;
+  padding: 50px 20px;
+}
 
-/* MOBILE */
+.loading-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
 @media (max-width: 500px) {
   body { padding: 10px; }
 
-  .wrapper {
-    margin-top: 5px;
-  }
+  .wrapper { margin-top: 5px; }
 
   .card {
     padding: 27px 17px;
@@ -438,479 +384,457 @@ button:disabled {
 
 <div class="wrapper">
 
+  <!-- LADEN -->
 
-<!-- ======================================
-     LOGIN
-     ====================================== -->
-
-<main id="loginArea" class="card center">
-
-  <div class="logo">👕</div>
-
-  <h1>Hoodie Verwaltung</h1>
-
-  <div class="subtitle">
-    Dein Hoodie. Deine Seite.
-  </div>
-
-  <p class="login-info">
-    Gib dein persönliches Passwort ein.
-    Der richtige Hoodie wird automatisch erkannt.
-  </p>
-
-  <div class="field">
-    <input
-      id="loginPassword"
-      type="password"
-      placeholder="Passwort"
-      autocomplete="current-password"
-    >
-  </div>
-
-  <label class="remember">
-    <input
-      id="rememberLogin"
-      type="checkbox"
-      checked
-    >
-    Auf diesem Gerät angemeldet bleiben
-  </label>
-
-  <button id="loginButton" type="button">
-    🔐 Anmelden
-  </button>
-
-  <div id="loginMessage" class="message"></div>
-
-</main>
+  <main id="loadingArea" class="card loading">
+    <div class="loading-icon">👕</div>
+    <div>Hoodie wird geladen …</div>
+  </main>
 
 
-<!-- ======================================
-     VERWALTUNG
-     ====================================== -->
+  <!-- LOGIN -->
 
-<main id="adminArea" class="card">
-
-  <div class="admin-header">
+  <main id="loginArea" class="card center">
 
     <div class="logo">👕</div>
 
-    <h1>Mein Hoodie</h1>
+    <h1>Hoodie Verwaltung</h1>
 
-    <div class="subtitle" style="margin-bottom:0;">
-      Verwaltung
+    <div class="subtitle">
+      Dein Hoodie. Deine Seite.
     </div>
 
-    <div id="hoodieBadge" class="hoodie-badge">
-      Hoodie
-    </div>
+    <p class="login-info">
+      Gib dein persönliches Passwort ein.
+      Dein Hoodie wird automatisch erkannt.
+    </p>
 
-  </div>
-
-
-  <!-- LIVE VORSCHAU -->
-
-  <section class="section">
-
-    <div class="section-title">
-      👁️ Live-Vorschau
-    </div>
-
-    <div
-      id="previewShell"
-      class="preview-shell"
-    >
-
-      <div
-        id="preview"
-        class="preview"
+    <div class="field">
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Passwort"
+        autocomplete="current-password"
       >
-
-        <div
-          id="previewHeadline"
-          class="preview-headline"
-        ></div>
-
-        <div class="preview-line"></div>
-
-        <div
-          id="previewTitle"
-          class="preview-title"
-        ></div>
-
-        <div
-          id="previewText"
-          class="preview-text"
-        ></div>
-
-        <div class="preview-line"></div>
-
-        <div
-          id="previewGreeting"
-          class="preview-greeting"
-        ></div>
-
-        <div
-          id="previewPs"
-          class="preview-ps"
-        ></div>
-
-      </div>
-
     </div>
 
-    <p class="preview-note">
-      Änderungen erscheinen hier sofort.
-      Online gehen sie erst nach dem Speichern.
-    </p>
-
-  </section>
-
-
-  <!-- BEARBEITEN -->
-
-  <section class="section">
-
-    <div class="section-title">
-      ✏️ Text & Design
-    </div>
-
-
-    <!-- HEADLINE -->
-
-    <div class="group">
-
-      <div class="group-title">
-        🟥 Kleine Überschrift
-      </div>
-
-      <div class="field">
-        <label>Text</label>
-        <input id="headline" type="text">
-      </div>
-
-      <div class="row">
-
-        <div class="field">
-          <label>Schriftart</label>
-
-          <select id="headlineFont">
-            <option value="modern">Modern</option>
-            <option value="elegant">Elegant</option>
-            <option value="classic">Klassisch</option>
-            <option value="handwritten">Handschrift</option>
-            <option value="playful">Verspielt</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Farbe</label>
-
-          <div class="color-field">
-            <input id="headlineColor" type="color">
-            <input id="headlineHex" class="hex" type="text">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- TITLE -->
-
-    <div class="group">
-
-      <div class="group-title">
-        ⬜ Große Überschrift
-      </div>
-
-      <div class="field">
-        <label>Text</label>
-        <input id="title" type="text">
-      </div>
-
-      <div class="row">
-
-        <div class="field">
-          <label>Schriftart</label>
-
-          <select id="titleFont">
-            <option value="modern">Modern</option>
-            <option value="elegant">Elegant</option>
-            <option value="classic">Klassisch</option>
-            <option value="handwritten">Handschrift</option>
-            <option value="playful">Verspielt</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Farbe</label>
-
-          <div class="color-field">
-            <input id="titleColor" type="color">
-            <input id="titleHex" class="hex" type="text">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- TEXT -->
-
-    <div class="group">
-
-      <div class="group-title">
-        📝 Haupttext
-      </div>
-
-      <div class="field">
-        <label>Text</label>
-        <textarea id="bodyText"></textarea>
-      </div>
-
-      <div class="row">
-
-        <div class="field">
-          <label>Schriftart</label>
-
-          <select id="textFont">
-            <option value="modern">Modern</option>
-            <option value="elegant">Elegant</option>
-            <option value="classic">Klassisch</option>
-            <option value="handwritten">Handschrift</option>
-            <option value="playful">Verspielt</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Farbe</label>
-
-          <div class="color-field">
-            <input id="textColor" type="color">
-            <input id="textHex" class="hex" type="text">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- GRUSS -->
-
-    <div class="group">
-
-      <div class="group-title">
-        👋 Grußzeile
-      </div>
-
-      <div class="field">
-        <label>Text</label>
-        <input id="greeting" type="text">
-      </div>
-
-      <div class="row">
-
-        <div class="field">
-          <label>Schriftart</label>
-
-          <select id="greetingFont">
-            <option value="modern">Modern</option>
-            <option value="elegant">Elegant</option>
-            <option value="classic">Klassisch</option>
-            <option value="handwritten">Handschrift</option>
-            <option value="playful">Verspielt</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Farbe</label>
-
-          <div class="color-field">
-            <input id="greetingColor" type="color">
-            <input id="greetingHex" class="hex" type="text">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- PS -->
-
-    <div class="group">
-
-      <div class="group-title">
-        ❤️ PS
-      </div>
-
-      <div class="field">
-        <label>Text</label>
-        <input id="ps" type="text">
-      </div>
-
-      <div class="row">
-
-        <div class="field">
-          <label>Schriftart</label>
-
-          <select id="psFont">
-            <option value="modern">Modern</option>
-            <option value="elegant">Elegant</option>
-            <option value="classic">Klassisch</option>
-            <option value="handwritten">Handschrift</option>
-            <option value="playful">Verspielt</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Farbe</label>
-
-          <div class="color-field">
-            <input id="psColor" type="color">
-            <input id="psHex" class="hex" type="text">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- DESIGN -->
-
-    <div class="group">
-
-      <div class="group-title">
-        🎨 Seitendesign
-      </div>
-
-
-      <div class="field">
-        <label>Akzentfarbe</label>
-
-        <div class="color-field">
-          <input id="accentColor" type="color">
-          <input id="accentHex" class="hex" type="text">
-        </div>
-      </div>
-
-
-      <div class="field">
-        <label>Seitenhintergrund</label>
-
-        <div class="color-field">
-          <input id="backgroundColor" type="color">
-          <input id="backgroundHex" class="hex" type="text">
-        </div>
-      </div>
-
-
-      <div class="field">
-        <label>Kartenfarbe</label>
-
-        <div class="color-field">
-          <input id="cardColor" type="color">
-          <input id="cardHex" class="hex" type="text">
-        </div>
-      </div>
-
-    </div>
-
-
-    <button id="saveButton" type="button">
-      💾 Änderungen speichern
+    <label class="remember">
+      <input
+        id="rememberLogin"
+        type="checkbox"
+        checked
+      >
+      Auf diesem Gerät angemeldet bleiben
+    </label>
+
+    <button id="loginButton" type="button">
+      🔐 Anmelden
     </button>
 
-    <div id="saveMessage" class="message"></div>
+    <div id="loginMessage" class="message"></div>
 
-  </section>
+  </main>
 
 
-  <!-- STATISTIK -->
+  <!-- VERWALTUNG -->
 
-  <section class="section">
+  <main id="adminArea" class="card">
 
-    <div class="section-title">
-      📊 Statistik
-    </div>
+    <div class="admin-header">
 
-    <div class="stats">
+      <div class="logo">👕</div>
 
-      <div class="stat">
-        <span class="stat-icon">👀</span>
-        <span id="views" class="stat-number">–</span>
-        <span class="stat-label">Aufrufe</span>
+      <h1>Mein Hoodie</h1>
+
+      <div class="subtitle" style="margin-bottom:0;">
+        Verwaltung
       </div>
 
-      <div class="stat">
-        <span class="stat-icon">❤️</span>
-        <span id="likes" class="stat-number">–</span>
-        <span class="stat-label">Danke</span>
+      <div id="hoodieBadge" class="hoodie-badge">
+        Hoodie
+      </div>
+
+      <div id="deviceBadge" class="device-badge">
+        🔐 Dieses Gerät ist angemeldet
       </div>
 
     </div>
 
-  </section>
+
+    <!-- VORSCHAU -->
+
+    <section class="section">
+
+      <div class="section-title">
+        👁️ Live-Vorschau
+      </div>
+
+      <div id="previewShell" class="preview-shell">
+
+        <div id="preview" class="preview">
+
+          <div
+            id="previewHeadline"
+            class="preview-headline"
+          ></div>
+
+          <div class="preview-line"></div>
+
+          <div
+            id="previewTitle"
+            class="preview-title"
+          ></div>
+
+          <div
+            id="previewText"
+            class="preview-text"
+          ></div>
+
+          <div class="preview-line"></div>
+
+          <div
+            id="previewGreeting"
+            class="preview-greeting"
+          ></div>
+
+          <div
+            id="previewPs"
+            class="preview-ps"
+          ></div>
+
+        </div>
+
+      </div>
+
+      <p class="preview-note">
+        Änderungen erscheinen hier sofort.
+        Online gehen sie erst nach dem Speichern.
+      </p>
+
+    </section>
 
 
-  <!-- RESET -->
+    <!-- BEARBEITEN -->
 
-  <section class="section">
+    <section class="section">
 
-    <div class="section-title">
-      🔄 Statistik zurücksetzen
-    </div>
-
-    <p style="
-      color:#999;
-      font-size:.82rem;
-      line-height:1.5;
-    ">
-      Setzt Aufrufe und Danke dieses Hoodies auf 0.
-    </p>
-
-    <button
-      id="resetButton"
-      class="secondary"
-      type="button"
-    >
-      Zähler zurücksetzen
-    </button>
-
-    <div id="resetMessage" class="message"></div>
-
-  </section>
+      <div class="section-title">
+        ✏️ Text & Design
+      </div>
 
 
-  <!-- LOGOUT -->
+      <div class="group">
 
-  <section class="section">
+        <div class="group-title">
+          🟥 Kleine Überschrift
+        </div>
 
-    <button
-      id="logoutButton"
-      class="secondary"
-      type="button"
-    >
-      🔒 Abmelden
-    </button>
+        <div class="field">
+          <label>Text</label>
+          <input id="headline" type="text">
+        </div>
 
-  </section>
+        <div class="row">
 
-</main>
+          <div class="field">
+            <label>Schriftart</label>
+
+            <select id="headlineFont">
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Farbe</label>
+
+            <div class="color-field">
+              <input id="headlineColor" type="color">
+              <input id="headlineHex" class="hex" type="text">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="group">
+
+        <div class="group-title">
+          ⬜ Große Überschrift
+        </div>
+
+        <div class="field">
+          <label>Text</label>
+          <input id="title" type="text">
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+            <label>Schriftart</label>
+
+            <select id="titleFont">
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Farbe</label>
+
+            <div class="color-field">
+              <input id="titleColor" type="color">
+              <input id="titleHex" class="hex" type="text">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="group">
+
+        <div class="group-title">
+          📝 Haupttext
+        </div>
+
+        <div class="field">
+          <label>Text</label>
+          <textarea id="bodyText"></textarea>
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+            <label>Schriftart</label>
+
+            <select id="textFont">
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Farbe</label>
+
+            <div class="color-field">
+              <input id="textColor" type="color">
+              <input id="textHex" class="hex" type="text">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="group">
+
+        <div class="group-title">
+          👋 Grußzeile
+        </div>
+
+        <div class="field">
+          <label>Text</label>
+          <input id="greeting" type="text">
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+            <label>Schriftart</label>
+
+            <select id="greetingFont">
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Farbe</label>
+
+            <div class="color-field">
+              <input id="greetingColor" type="color">
+              <input id="greetingHex" class="hex" type="text">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="group">
+
+        <div class="group-title">
+          ❤️ PS
+        </div>
+
+        <div class="field">
+          <label>Text</label>
+          <input id="ps" type="text">
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+            <label>Schriftart</label>
+
+            <select id="psFont">
+              <option value="modern">Modern</option>
+              <option value="elegant">Elegant</option>
+              <option value="classic">Klassisch</option>
+              <option value="handwritten">Handschrift</option>
+              <option value="playful">Verspielt</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Farbe</label>
+
+            <div class="color-field">
+              <input id="psColor" type="color">
+              <input id="psHex" class="hex" type="text">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="group">
+
+        <div class="group-title">
+          🎨 Seitendesign
+        </div>
+
+        <div class="field">
+          <label>Akzentfarbe</label>
+
+          <div class="color-field">
+            <input id="accentColor" type="color">
+            <input id="accentHex" class="hex" type="text">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Seitenhintergrund</label>
+
+          <div class="color-field">
+            <input id="backgroundColor" type="color">
+            <input id="backgroundHex" class="hex" type="text">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Kartenfarbe</label>
+
+          <div class="color-field">
+            <input id="cardColor" type="color">
+            <input id="cardHex" class="hex" type="text">
+          </div>
+        </div>
+
+      </div>
+
+
+      <button id="saveButton" type="button">
+        💾 Änderungen speichern
+      </button>
+
+      <div id="saveMessage" class="message"></div>
+
+    </section>
+
+
+    <!-- STATISTIK -->
+
+    <section class="section">
+
+      <div class="section-title">
+        📊 Statistik
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <span class="stat-icon">👀</span>
+          <span id="views" class="stat-number">–</span>
+          <span class="stat-label">Aufrufe</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-icon">❤️</span>
+          <span id="likes" class="stat-number">–</span>
+          <span class="stat-label">Danke</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESET -->
+
+    <section class="section">
+
+      <div class="section-title">
+        🔄 Statistik zurücksetzen
+      </div>
+
+      <p style="color:#999;font-size:.82rem;line-height:1.5;">
+        Setzt Aufrufe und Danke dieses Hoodies auf 0.
+      </p>
+
+      <button
+        id="resetButton"
+        class="secondary"
+        type="button"
+      >
+        Zähler zurücksetzen
+      </button>
+
+      <div id="resetMessage" class="message"></div>
+
+    </section>
+
+
+    <!-- LOGOUT -->
+
+    <section class="section">
+
+      <button
+        id="logoutButton"
+        class="danger"
+        type="button"
+      >
+        🔒 Dieses Gerät abmelden
+      </button>
+
+    </section>
+
+  </main>
 
 </div>
 
 
 <script>
-
-/* ==========================================
-   EINSTELLUNGEN
-   ========================================== */
 
 const SUPABASE_URL =
   "https://wbxwzspkoriyjmcbomxn.supabase.co";
@@ -924,29 +848,11 @@ const headers = {
   "Content-Type": "application/json"
 };
 
-
-/*
-  Wir speichern NICHT das Passwort dauerhaft.
-
-  Bei "angemeldet bleiben" speichern wir nur,
-  welcher Hoodie auf diesem Gerät freigeschaltet wurde.
-
-  WICHTIG:
-  Schreib-/Reset-Aktionen benötigen weiterhin
-  das Passwort. Deshalb muss für diese Aktionen
-  ggf. erneut entsperrt werden.
-
-  Für maximalen Komfort halten wir das Passwort
-  während der geöffneten Sitzung im Arbeitsspeicher.
-*/
+const TOKEN_KEY = "hoodie-admin-token";
 
 let currentHoodie = "";
-let adminPassword = "";
+let deviceToken = "";
 
-
-/* ==========================================
-   SCHRIFTEN
-   ========================================== */
 
 const fonts = {
   modern:
@@ -966,15 +872,14 @@ const fonts = {
 };
 
 
-/* ==========================================
-   ELEMENTE
-   ========================================== */
-
 const loginArea =
   document.getElementById("loginArea");
 
 const adminArea =
   document.getElementById("adminArea");
+
+const loadingArea =
+  document.getElementById("loadingArea");
 
 const loginPassword =
   document.getElementById("loginPassword");
@@ -1001,13 +906,28 @@ const resetMessage =
   document.getElementById("resetMessage");
 
 
-/* ==========================================
-   HILFSFUNKTIONEN
-   ========================================== */
-
 function message(element, text, type = "") {
   element.textContent = text;
   element.className = "message " + type;
+}
+
+
+function showOnly(area) {
+  loginArea.style.display = "none";
+  adminArea.style.display = "none";
+  loadingArea.style.display = "none";
+
+  area.style.display = "block";
+}
+
+
+function generateToken() {
+  const bytes = new Uint8Array(32);
+  crypto.getRandomValues(bytes);
+
+  return Array.from(bytes)
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 
@@ -1025,45 +945,29 @@ function setupColor(colorId, hexId) {
     document.getElementById(hexId);
 
 
-  picker.addEventListener(
-    "input",
-    function() {
-      hex.value =
-        picker.value.toUpperCase();
+  picker.addEventListener("input", function() {
+    hex.value = picker.value.toUpperCase();
+    updatePreview();
+  });
 
+
+  hex.addEventListener("input", function() {
+
+    let value = hex.value.trim();
+
+    if (value.length && !value.startsWith("#")) {
+      value = "#" + value;
+    }
+
+    if (validColor(value)) {
+      picker.value = value;
       updatePreview();
     }
-  );
-
-
-  hex.addEventListener(
-    "input",
-    function() {
-
-      let value =
-        hex.value.trim();
-
-      if (
-        value.length &&
-        !value.startsWith("#")
-      ) {
-        value = "#" + value;
-      }
-
-      if (validColor(value)) {
-        picker.value = value;
-        updatePreview();
-      }
-    }
-  );
+  });
 }
 
 
-function setColor(
-  colorId,
-  hexId,
-  value
-) {
+function setColor(colorId, hexId, value) {
 
   const color =
     validColor(value)
@@ -1078,15 +982,12 @@ function setColor(
 }
 
 
-/* ==========================================
-   LOGIN
-   ========================================== */
+/* LOGIN */
 
 async function login() {
 
   const password =
     loginPassword.value;
-
 
   if (!password) {
     message(
@@ -1094,15 +995,17 @@ async function login() {
       "Bitte Passwort eingeben.",
       "error"
     );
-
     return;
   }
 
 
   loginButton.disabled = true;
   loginButton.textContent = "Wird geprüft …";
-
   message(loginMessage, "");
+
+
+  const newToken =
+    generateToken();
 
 
   try {
@@ -1110,12 +1013,13 @@ async function login() {
     const response =
       await fetch(
         SUPABASE_URL +
-        "/rest/v1/rpc/hoodie_admin_login",
+        "/rest/v1/rpc/hoodie_device_login",
         {
           method: "POST",
           headers: headers,
           body: JSON.stringify({
-            p_password: password
+            p_password: password,
+            p_token: newToken
           })
         }
       );
@@ -1131,35 +1035,31 @@ async function login() {
 
 
     if (!hoodie) {
-
       message(
         loginMessage,
         "Passwort ist nicht korrekt.",
         "error"
       );
-
       return;
     }
 
 
-    currentHoodie =
-      hoodie;
-
-    adminPassword =
-      password;
+    currentHoodie = hoodie;
+    deviceToken = newToken;
 
 
     if (rememberLogin.checked) {
 
       localStorage.setItem(
-        "hoodie-admin-device",
-        currentHoodie
+        TOKEN_KEY,
+        deviceToken
       );
 
     } else {
 
-      localStorage.removeItem(
-        "hoodie-admin-device"
+      sessionStorage.setItem(
+        TOKEN_KEY,
+        deviceToken
       );
     }
 
@@ -1176,7 +1076,6 @@ async function login() {
       "Anmeldung konnte nicht durchgeführt werden.",
       "error"
     );
-
 
   } finally {
 
@@ -1203,24 +1102,87 @@ loginPassword.addEventListener(
 );
 
 
-/* ==========================================
-   VERWALTUNG ÖFFNEN
-   ========================================== */
+/* GESPEICHERTES GERÄT PRÜFEN */
+
+async function checkDevice() {
+
+  const savedToken =
+    localStorage.getItem(TOKEN_KEY) ||
+    sessionStorage.getItem(TOKEN_KEY);
+
+
+  if (!savedToken) {
+    showOnly(loginArea);
+    return;
+  }
+
+
+  showOnly(loadingArea);
+
+
+  try {
+
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        "/rest/v1/rpc/hoodie_device_check",
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({
+            p_token: savedToken
+          })
+        }
+      );
+
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+
+    const hoodie =
+      await response.json();
+
+
+    if (!hoodie) {
+
+      localStorage.removeItem(TOKEN_KEY);
+      sessionStorage.removeItem(TOKEN_KEY);
+
+      showOnly(loginArea);
+      return;
+    }
+
+
+    deviceToken = savedToken;
+    currentHoodie = hoodie;
+
+    await openAdmin();
+
+
+  } catch (error) {
+
+    showOnly(loginArea);
+
+    message(
+      loginMessage,
+      "Gespeicherte Anmeldung konnte nicht geprüft werden.",
+      "error"
+    );
+  }
+}
+
+
+/* ADMIN ÖFFNEN */
 
 async function openAdmin() {
 
-  loginArea.style.display =
-    "none";
-
-  adminArea.style.display =
-    "block";
+  showOnly(adminArea);
 
 
   const number =
-    currentHoodie.replace(
-      "hoodie",
-      ""
-    );
+    currentHoodie.replace("hoodie", "");
 
 
   document.getElementById(
@@ -1236,9 +1198,7 @@ async function openAdmin() {
 }
 
 
-/* ==========================================
-   INHALT LADEN
-   ========================================== */
+/* INHALT LADEN */
 
 async function loadContent() {
 
@@ -1249,7 +1209,7 @@ async function loadContent() {
         SUPABASE_URL +
         "/rest/v1/hoodie_content" +
         "?hoodie=eq." +
-        currentHoodie +
+        encodeURIComponent(currentHoodie) +
         "&select=*",
         {
           headers: headers,
@@ -1373,9 +1333,30 @@ async function loadContent() {
 }
 
 
-/* ==========================================
-   LIVE-VORSCHAU
-   ========================================== */
+/* VORSCHAU */
+
+function setPreviewText(
+  previewId,
+  inputId,
+  fontId,
+  colorId
+) {
+
+  const element =
+    document.getElementById(previewId);
+
+  element.textContent =
+    document.getElementById(inputId).value;
+
+  element.style.fontFamily =
+    fonts[
+      document.getElementById(fontId).value
+    ];
+
+  element.style.color =
+    document.getElementById(colorId).value;
+}
+
 
 function updatePreview() {
 
@@ -1385,23 +1366,14 @@ function updatePreview() {
   const shell =
     document.getElementById("previewShell");
 
-
   const accent =
-    document.getElementById(
-      "accentColor"
-    ).value;
-
+    document.getElementById("accentColor").value;
 
   const background =
-    document.getElementById(
-      "backgroundColor"
-    ).value;
-
+    document.getElementById("backgroundColor").value;
 
   const card =
-    document.getElementById(
-      "cardColor"
-    ).value;
+    document.getElementById("cardColor").value;
 
 
   preview.style.setProperty(
@@ -1426,7 +1398,6 @@ function updatePreview() {
     "headlineColor"
   );
 
-
   setPreviewText(
     "previewTitle",
     "title",
@@ -1434,14 +1405,12 @@ function updatePreview() {
     "titleColor"
   );
 
-
   setPreviewText(
     "previewText",
     "bodyText",
     "textFont",
     "textColor"
   );
-
 
   setPreviewText(
     "previewGreeting",
@@ -1452,14 +1421,10 @@ function updatePreview() {
 
 
   const ps =
-    document.getElementById(
-      "previewPs"
-    );
+    document.getElementById("previewPs");
 
   const psText =
-    document.getElementById(
-      "ps"
-    ).value;
+    document.getElementById("ps").value;
 
 
   ps.innerHTML = "";
@@ -1468,9 +1433,7 @@ function updatePreview() {
   if (psText) {
 
     const label =
-      document.createElement(
-        "span"
-      );
+      document.createElement("span");
 
     label.className =
       "preview-ps-label";
@@ -1481,65 +1444,22 @@ function updatePreview() {
     ps.appendChild(label);
 
     ps.appendChild(
-      document.createTextNode(
-        psText
-      )
+      document.createTextNode(psText)
     );
   }
 
 
   ps.style.fontFamily =
     fonts[
-      document.getElementById(
-        "psFont"
-      ).value
+      document.getElementById("psFont").value
     ];
-
 
   ps.style.color =
-    document.getElementById(
-      "psColor"
-    ).value;
+    document.getElementById("psColor").value;
 }
 
 
-function setPreviewText(
-  previewId,
-  inputId,
-  fontId,
-  colorId
-) {
-
-  const element =
-    document.getElementById(
-      previewId
-    );
-
-
-  element.textContent =
-    document.getElementById(
-      inputId
-    ).value;
-
-
-  element.style.fontFamily =
-    fonts[
-      document.getElementById(
-        fontId
-      ).value
-    ];
-
-
-  element.style.color =
-    document.getElementById(
-      colorId
-    ).value;
-}
-
-
-/* ==========================================
-   LIVE EVENTS
-   ========================================== */
+/* LIVE EVENTS */
 
 [
   "headline",
@@ -1569,81 +1489,23 @@ function setPreviewText(
 });
 
 
-setupColor(
-  "headlineColor",
-  "headlineHex"
-);
-
-setupColor(
-  "titleColor",
-  "titleHex"
-);
-
-setupColor(
-  "textColor",
-  "textHex"
-);
-
-setupColor(
-  "greetingColor",
-  "greetingHex"
-);
-
-setupColor(
-  "psColor",
-  "psHex"
-);
-
-setupColor(
-  "accentColor",
-  "accentHex"
-);
-
-setupColor(
-  "backgroundColor",
-  "backgroundHex"
-);
-
-setupColor(
-  "cardColor",
-  "cardHex"
-);
+setupColor("headlineColor", "headlineHex");
+setupColor("titleColor", "titleHex");
+setupColor("textColor", "textHex");
+setupColor("greetingColor", "greetingHex");
+setupColor("psColor", "psHex");
+setupColor("accentColor", "accentHex");
+setupColor("backgroundColor", "backgroundHex");
+setupColor("cardColor", "cardHex");
 
 
-/* ==========================================
-   SPEICHERN
-   ========================================== */
+/* SPEICHERN */
 
 saveButton.addEventListener(
   "click",
   async function() {
 
-    /*
-      Wenn die Seite durch eine gemerkte
-      Geräteanmeldung geöffnet wurde,
-      ist das Passwort nicht im Speicher.
-    */
-
-    if (!adminPassword) {
-
-      const password =
-        prompt(
-          "Bitte Passwort zum Speichern eingeben:"
-        );
-
-
-      if (!password) {
-        return;
-      }
-
-
-      adminPassword =
-        password;
-    }
-
-
     saveButton.disabled = true;
-
     saveButton.textContent =
       "Wird gespeichert …";
 
@@ -1652,11 +1514,7 @@ saveButton.addEventListener(
 
     const payload = {
 
-      p_hoodie:
-        currentHoodie,
-
-      p_password:
-        adminPassword,
+      p_token: deviceToken,
 
       p_headline:
         document.getElementById("headline").value,
@@ -1719,7 +1577,7 @@ saveButton.addEventListener(
       const response =
         await fetch(
           SUPABASE_URL +
-          "/rest/v1/rpc/hoodie_save_content",
+          "/rest/v1/rpc/hoodie_device_save_content",
           {
             method: "POST",
             headers: headers,
@@ -1729,9 +1587,6 @@ saveButton.addEventListener(
 
 
       if (!response.ok) {
-
-        adminPassword = "";
-
         throw new Error();
       }
 
@@ -1750,15 +1605,13 @@ saveButton.addEventListener(
 
       message(
         saveMessage,
-        "Speichern nicht möglich. Bitte Passwort erneut eingeben.",
+        "Speichern nicht möglich. Bitte erneut anmelden.",
         "error"
       );
-
 
     } finally {
 
       saveButton.disabled = false;
-
       saveButton.textContent =
         "💾 Änderungen speichern";
     }
@@ -1766,9 +1619,7 @@ saveButton.addEventListener(
 );
 
 
-/* ==========================================
-   STATISTIK
-   ========================================== */
+/* STATISTIK */
 
 async function loadStats() {
 
@@ -1779,7 +1630,7 @@ async function loadStats() {
         SUPABASE_URL +
         "/rest/v1/hoodie_stats" +
         "?hoodie=eq." +
-        currentHoodie +
+        encodeURIComponent(currentHoodie) +
         "&select=views,likes",
         {
           headers: headers,
@@ -1804,7 +1655,6 @@ async function loadStats() {
       ).textContent =
         data[0].views;
 
-
       document.getElementById(
         "likes"
       ).textContent =
@@ -1825,31 +1675,11 @@ async function loadStats() {
 }
 
 
-/* ==========================================
-   RESET
-   ========================================== */
+/* RESET */
 
 resetButton.addEventListener(
   "click",
   async function() {
-
-    if (!adminPassword) {
-
-      const password =
-        prompt(
-          "Bitte Passwort zum Zurücksetzen eingeben:"
-        );
-
-
-      if (!password) {
-        return;
-      }
-
-
-      adminPassword =
-        password;
-    }
-
 
     const confirmed =
       confirm(
@@ -1875,25 +1705,18 @@ resetButton.addEventListener(
       const response =
         await fetch(
           SUPABASE_URL +
-          "/rest/v1/rpc/hoodie_reset",
+          "/rest/v1/rpc/hoodie_device_reset",
           {
             method: "POST",
             headers: headers,
             body: JSON.stringify({
-              p_hoodie:
-                currentHoodie,
-
-              p_password:
-                adminPassword
+              p_token: deviceToken
             })
           }
         );
 
 
       if (!response.ok) {
-
-        adminPassword = "";
-
         throw new Error();
       }
 
@@ -1906,7 +1729,6 @@ resetButton.addEventListener(
         "views"
       ).textContent =
         data.views ?? 0;
-
 
       document.getElementById(
         "likes"
@@ -1925,15 +1747,13 @@ resetButton.addEventListener(
 
       message(
         resetMessage,
-        "Zurücksetzen nicht möglich. Bitte Passwort erneut eingeben.",
+        "Zurücksetzen nicht möglich.",
         "error"
       );
-
 
     } finally {
 
       resetButton.disabled = false;
-
       resetButton.textContent =
         "Zähler zurücksetzen";
     }
@@ -1941,30 +1761,56 @@ resetButton.addEventListener(
 );
 
 
-/* ==========================================
-   ABMELDEN
-   ========================================== */
+/* ABMELDEN */
 
 document.getElementById(
   "logoutButton"
 ).addEventListener(
   "click",
-  function() {
+  async function() {
 
-    localStorage.removeItem(
-      "hoodie-admin-device"
-    );
+    const token =
+      deviceToken;
 
+
+    localStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
+
+    deviceToken = "";
     currentHoodie = "";
-    adminPassword = "";
 
-    adminArea.style.display =
-      "none";
 
-    loginArea.style.display =
-      "block";
+    if (token) {
 
-    message(loginMessage, "");
+      try {
+
+        await fetch(
+          SUPABASE_URL +
+          "/rest/v1/rpc/hoodie_device_logout",
+          {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify({
+              p_token: token
+            })
+          }
+        );
+
+      } catch (error) {
+        // Lokale Anmeldung ist trotzdem entfernt.
+      }
+    }
+
+
+    showOnly(loginArea);
+
+    loginPassword.value = "";
+
+    message(
+      loginMessage,
+      "Dieses Gerät wurde abgemeldet.",
+      "success"
+    );
 
     window.scrollTo({
       top: 0,
@@ -1974,33 +1820,9 @@ document.getElementById(
 );
 
 
-/* ==========================================
-   GERÄT MERKEN
-   ========================================== */
+/* START */
 
-async function checkRememberedDevice() {
-
-  const remembered =
-    localStorage.getItem(
-      "hoodie-admin-device"
-    );
-
-
-  if (
-    remembered === "hoodie1" ||
-    remembered === "hoodie2" ||
-    remembered === "hoodie3"
-  ) {
-
-    currentHoodie =
-      remembered;
-
-    await openAdmin();
-  }
-}
-
-
-checkRememberedDevice();
+checkDevice();
 
 </script>
 
