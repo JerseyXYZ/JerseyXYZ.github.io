@@ -9,11 +9,9 @@
 * { box-sizing: border-box; }
 
 :root {
-  --text-color: #f5f5f5;
-  --accent-color: #f12643;
+  --accent-color: #F12643;
   --background-color: #050505;
   --card-color: #101010;
-  --page-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
@@ -23,12 +21,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--page-font);
-  color: var(--text-color);
+
   background:
-    radial-gradient(circle at 5% 10%, color-mix(in srgb, var(--accent-color) 25%, transparent), transparent 32%),
-    radial-gradient(circle at 95% 90%, color-mix(in srgb, var(--accent-color) 18%, transparent), transparent 34%),
+    radial-gradient(circle at 5% 10%,
+      color-mix(in srgb, var(--accent-color) 25%, transparent),
+      transparent 32%),
+    radial-gradient(circle at 95% 90%,
+      color-mix(in srgb, var(--accent-color) 18%, transparent),
+      transparent 34%),
     var(--background-color);
+
+  color: #F5F5F5;
+  font-family:
+    -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Arial, sans-serif;
 }
 
 body::before {
@@ -37,6 +43,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   opacity: .25;
+
   background-image:
     repeating-linear-gradient(
       130deg,
@@ -54,17 +61,24 @@ body::before {
   padding: 38px 25px 30px;
   overflow: hidden;
   text-align: center;
+
   background:
     linear-gradient(
       145deg,
       color-mix(in srgb, var(--card-color) 94%, white 6%),
       var(--card-color)
     );
-  border: 1px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+
+  border:
+    1px solid
+    color-mix(in srgb, var(--accent-color) 35%, transparent);
+
   border-radius: 25px;
+
   box-shadow:
     0 24px 65px rgba(0,0,0,.65),
-    0 0 35px color-mix(in srgb, var(--accent-color) 8%, transparent);
+    0 0 35px
+    color-mix(in srgb, var(--accent-color) 8%, transparent);
 }
 
 .card::before {
@@ -74,19 +88,24 @@ body::before {
   left: 25%;
   width: 50%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-color),
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent-color),
+      transparent
+    );
+
   box-shadow:
-    0 0 18px color-mix(in srgb, var(--accent-color) 55%, transparent);
+    0 0 18px
+    color-mix(in srgb, var(--accent-color) 55%, transparent);
 }
 
-/* Kleine Überschrift jetzt besser lesbar */
+
+/* KLEINE ÜBERSCHRIFT */
+
 .headline {
-  color: var(--accent-color);
   font-size: .9rem;
   line-height: 1.4;
   font-weight: 750;
@@ -104,6 +123,9 @@ body::before {
   background: var(--accent-color);
 }
 
+
+/* GROSSE ÜBERSCHRIFT */
+
 h1 {
   max-width: 520px;
   margin: 20px auto 22px;
@@ -113,11 +135,12 @@ h1 {
   letter-spacing: -.04em;
 }
 
+
+/* HAUPTTEXT */
+
 .text {
   max-width: 500px;
   margin: 0 auto;
-  color: var(--text-color);
-  opacity: .9;
   font-size: 1.05rem;
   line-height: 1.65;
   white-space: pre-line;
@@ -131,19 +154,21 @@ h1 {
   opacity: .75;
 }
 
+
+/* GRUSS */
+
 .greeting {
-  color: var(--text-color);
-  opacity: .58;
   font-size: .88rem;
   line-height: 1.5;
   font-style: italic;
 }
 
+
+/* PS */
+
 .ps {
   max-width: 500px;
   margin: 14px auto 0;
-  color: var(--text-color);
-  opacity: .88;
   font-size: .92rem;
   line-height: 1.5;
 }
@@ -153,12 +178,14 @@ h1 {
   font-weight: 700;
 }
 
-/* Statistik */
+
+/* STATISTIK */
 
 .stats {
   position: relative;
   margin-top: 27px;
   padding-top: 23px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,22 +200,27 @@ h1 {
   left: 25%;
   right: 25%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.12),
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.12),
+      transparent
+    );
 }
 
 .like-button,
 .views {
   min-height: 44px;
   padding: 10px 15px;
+
   border-radius: 22px;
   border: 1px solid rgba(255,255,255,.10);
+
   background: rgba(255,255,255,.045);
-  color: var(--text-color);
+  color: #F5F5F5;
+
   font: inherit;
   font-size: .88rem;
   white-space: nowrap;
@@ -199,15 +231,26 @@ h1 {
   transition: .2s ease;
 }
 
-.like-button:hover {
+.like-button:hover:not(:disabled) {
   border-color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--accent-color) 10%,
+      transparent
+    );
 }
 
 .like-button.liked {
-  color: var(--text-color);
   border-color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color) 14%, transparent);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--accent-color) 14%,
+      transparent
+    );
 }
 
 .like-button:disabled {
@@ -216,11 +259,10 @@ h1 {
 
 .stat-number {
   font-weight: 700;
-  color: var(--text-color);
 }
 
 
-/* ---------- DESKTOP ---------- */
+/* DESKTOP */
 
 @media (min-width: 700px) {
 
@@ -271,7 +313,7 @@ h1 {
 }
 
 
-/* ---------- MOBIL ---------- */
+/* MOBIL */
 
 @media (max-width: 430px) {
 
@@ -315,22 +357,32 @@ h1 {
 </style>
 </head>
 
+
 <body>
 
 <main class="card">
 
   <div id="headline" class="headline"></div>
+
   <h1 id="title"></h1>
+
   <div id="text" class="text"></div>
 
   <div class="message-end"></div>
 
   <div id="greeting" class="greeting"></div>
+
   <div id="ps" class="ps"></div>
+
 
   <div class="stats">
 
-    <button id="likeButton" class="like-button" type="button">
+    <button
+      id="likeButton"
+      class="like-button"
+      type="button"
+      disabled
+    >
       ❤️ <span id="likes" class="stat-number">0</span> Danke
     </button>
 
@@ -342,102 +394,213 @@ h1 {
 
 </main>
 
+
 <script>
-/* ---------- TEXT + DESIGN AUS PAGES CMS ---------- */
 
-fetch("./content.json?v=" + Date.now(), { cache: "no-store" })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Inhalt konnte nicht geladen werden.");
-    }
+/* ==========================================
+   TEXT + DESIGN AUS PAGES CMS
+   ========================================== */
 
-    return response.json();
-  })
-  .then(data => {
+const fonts = {
 
-    document.getElementById("headline").textContent =
-      data.headline || "";
+  modern:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
 
-    document.getElementById("title").textContent =
-      data.title || "";
+  elegant:
+    'Georgia, "Times New Roman", serif',
 
-    document.getElementById("text").textContent =
-      data.text || "";
+  classic:
+    '"Times New Roman", Times, serif',
 
-    document.getElementById("greeting").textContent =
-      data.greeting || "";
+  handwritten:
+    '"Bradley Hand", "Brush Script MT", cursive',
 
-    const ps = document.getElementById("ps");
-    ps.innerHTML = "";
-
-    if (data.ps) {
-      const label = document.createElement("span");
-      label.className = "ps-label";
-      label.textContent = "PS: ";
-
-      ps.appendChild(label);
-      ps.appendChild(document.createTextNode(data.ps));
-    }
+  playful:
+    '"Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif'
+};
 
 
-    /* Farben */
+function applyFont(element, fontName) {
 
-    const root = document.documentElement;
-
-    if (data.textColor) {
-      root.style.setProperty("--text-color", data.textColor);
-    }
-
-    if (data.accentColor) {
-      root.style.setProperty("--accent-color", data.accentColor);
-    }
-
-    if (data.backgroundColor) {
-      root.style.setProperty("--background-color", data.backgroundColor);
-    }
-
-    if (data.cardColor) {
-      root.style.setProperty("--card-color", data.cardColor);
-    }
+  if (fontName && fonts[fontName]) {
+    element.style.fontFamily = fonts[fontName];
+  }
+}
 
 
-    /* Schriftarten */
+function applyColor(element, color) {
 
-    const fonts = {
-
-      modern:
-        '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
-
-      elegant:
-        'Georgia, "Times New Roman", serif',
-
-      classic:
-        '"Times New Roman", Times, serif',
-
-      handwritten:
-        '"Comic Sans MS", "Bradley Hand", cursive',
-
-      playful:
-        '"Trebuchet MS", Arial, sans-serif'
-    };
-
-    if (data.font && fonts[data.font]) {
-      root.style.setProperty(
-        "--page-font",
-        fonts[data.font]
-      );
-    }
-
-  })
-  .catch(error => {
-    console.error(error);
-
-    document.getElementById("title").textContent =
-      "Für die Person hinter mir ❤️";
-  });
+  if (color) {
+    element.style.color = color;
+  }
+}
 
 
-/* ---------- HOODIE STATISTIK ---------- */
+fetch("./content.json?v=" + Date.now(), {
+  cache: "no-store"
+})
+.then(response => {
+
+  if (!response.ok) {
+    throw new Error("Inhalt konnte nicht geladen werden.");
+  }
+
+  return response.json();
+})
+.then(data => {
+
+  const headline =
+    document.getElementById("headline");
+
+  const title =
+    document.getElementById("title");
+
+  const text =
+    document.getElementById("text");
+
+  const greeting =
+    document.getElementById("greeting");
+
+  const ps =
+    document.getElementById("ps");
+
+
+  /* KLEINE ÜBERSCHRIFT */
+
+  headline.textContent =
+    data.headline || "";
+
+  applyFont(
+    headline,
+    data.headlineFont
+  );
+
+  applyColor(
+    headline,
+    data.headlineColor
+  );
+
+
+  /* GROSSE ÜBERSCHRIFT */
+
+  title.textContent =
+    data.title || "";
+
+  applyFont(
+    title,
+    data.titleFont
+  );
+
+  applyColor(
+    title,
+    data.titleColor
+  );
+
+
+  /* HAUPTTEXT */
+
+  text.textContent =
+    data.text || "";
+
+  applyFont(
+    text,
+    data.textFont
+  );
+
+  applyColor(
+    text,
+    data.textColor
+  );
+
+
+  /* GRUSSZEILE */
+
+  greeting.textContent =
+    data.greeting || "";
+
+  applyFont(
+    greeting,
+    data.greetingFont
+  );
+
+  applyColor(
+    greeting,
+    data.greetingColor
+  );
+
+
+  /* PS */
+
+  ps.innerHTML = "";
+
+  applyFont(
+    ps,
+    data.psFont
+  );
+
+  applyColor(
+    ps,
+    data.psColor
+  );
+
+  if (data.ps) {
+
+    const label =
+      document.createElement("span");
+
+    label.className =
+      "ps-label";
+
+    label.textContent =
+      "PS: ";
+
+    ps.appendChild(label);
+
+    ps.appendChild(
+      document.createTextNode(data.ps)
+    );
+  }
+
+
+  /* SEITENDESIGN */
+
+  const root =
+    document.documentElement;
+
+  if (data.accentColor) {
+    root.style.setProperty(
+      "--accent-color",
+      data.accentColor
+    );
+  }
+
+  if (data.backgroundColor) {
+    root.style.setProperty(
+      "--background-color",
+      data.backgroundColor
+    );
+  }
+
+  if (data.cardColor) {
+    root.style.setProperty(
+      "--card-color",
+      data.cardColor
+    );
+  }
+
+})
+.catch(error => {
+
+  console.error(error);
+
+  document.getElementById("title").textContent =
+    "Für die Person hinter mir ❤️";
+});
+
+
+/* ==========================================
+   HOODIE STATISTIK
+   ========================================== */
 
 const SUPABASE_URL =
   "https://wbxwzspkoriyjmcbomxn.supabase.co";
@@ -445,13 +608,21 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
   "sb_publishable_7-e-CafdZaT2CMCDhDH0DQ_qZLKzDVq";
 
-const HOODIE = "hoodie2";
+const HOODIE =
+  "hoodie2";
 
 const headers = {
-  "apikey": SUPABASE_KEY,
-  "Authorization": "Bearer " + SUPABASE_KEY,
-  "Content-Type": "application/json"
+
+  "apikey":
+    SUPABASE_KEY,
+
+  "Authorization":
+    "Bearer " + SUPABASE_KEY,
+
+  "Content-Type":
+    "application/json"
 };
+
 
 const likesElement =
   document.getElementById("likes");
@@ -462,119 +633,168 @@ const viewsElement =
 const likeButton =
   document.getElementById("likeButton");
 
+
 let currentResetVersion = 0;
 
 
-/* Zahlen anzeigen + Like-Sperre */
+/* STATISTIK ANZEIGEN */
 
 function showStats(data) {
 
   if (!data) return;
 
+
   if (typeof data.likes !== "undefined") {
-    likesElement.textContent = data.likes;
+
+    likesElement.textContent =
+      data.likes;
   }
+
 
   if (typeof data.views !== "undefined") {
-    viewsElement.textContent = data.views;
+
+    viewsElement.textContent =
+      data.views;
   }
 
-  if (typeof data.reset_version !== "undefined") {
 
-    currentResetVersion = data.reset_version;
+  if (
+    typeof data.reset_version !== "undefined"
+  ) {
+
+    currentResetVersion =
+      data.reset_version;
+
 
     const currentLikeKey =
-      HOODIE + "-liked-" + currentResetVersion;
+      HOODIE +
+      "-liked-" +
+      currentResetVersion;
 
-    if (localStorage.getItem(currentLikeKey) === "yes") {
+
+    if (
+      localStorage.getItem(currentLikeKey) === "yes"
+    ) {
 
       likeButton.classList.add("liked");
-      likeButton.disabled = true;
+
+      likeButton.disabled =
+        true;
 
     } else {
 
       likeButton.classList.remove("liked");
-      likeButton.disabled = false;
+
+      likeButton.disabled =
+        false;
     }
   }
 }
 
 
-/* Seitenaufruf zählen */
+/* AUFRUF ZÄHLEN */
 
 async function countView() {
 
   try {
 
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/rpc/hoodie_view",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify({
-          p_hoodie: HOODIE
-        })
-      }
-    );
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/rpc/hoodie_view",
+
+        {
+          method: "POST",
+          headers: headers,
+
+          body: JSON.stringify({
+            p_hoodie: HOODIE
+          })
+        }
+      );
+
 
     if (!response.ok) {
+
       throw new Error(
         "Aufruf konnte nicht gezählt werden."
       );
     }
 
-    const data = await response.json();
+
+    const data =
+      await response.json();
+
 
     showStats(data);
 
+
   } catch (error) {
 
-    console.error("Statistik:", error);
+    console.error(
+      "Statistik:",
+      error
+    );
 
     loadStats();
   }
 }
 
 
-/* Aktuelle Zahlen laden */
+/* AKTUELLE ZAHLEN LADEN */
 
 async function loadStats() {
 
   try {
 
-    const response = await fetch(
-      SUPABASE_URL +
-      "/rest/v1/hoodie_stats?hoodie=eq." +
-      HOODIE +
-      "&select=views,likes,reset_version",
-      {
-        headers: headers
-      }
-    );
+    const response =
+      await fetch(
+
+        SUPABASE_URL +
+        "/rest/v1/hoodie_stats?hoodie=eq." +
+        HOODIE +
+        "&select=views,likes,reset_version",
+
+        {
+          headers: headers
+        }
+      );
+
 
     if (!response.ok) {
+
       throw new Error(
         "Statistik konnte nicht geladen werden."
       );
     }
 
-    const data = await response.json();
+
+    const data =
+      await response.json();
+
 
     if (data.length) {
+
       showStats(data[0]);
     }
 
+
   } catch (error) {
 
-    console.error("Statistik:", error);
+    console.error(
+      "Statistik:",
+      error
+    );
   }
 }
 
 
-/* Danke / Like */
+/* DANKE / LIKE */
 
 likeButton.addEventListener(
   "click",
+
   async function () {
 
     const likeStorageKey =
@@ -582,57 +802,84 @@ likeButton.addEventListener(
       "-liked-" +
       currentResetVersion;
 
+
     if (
-      localStorage.getItem(likeStorageKey) === "yes"
+      localStorage.getItem(
+        likeStorageKey
+      ) === "yes"
     ) {
+
       return;
     }
 
-    likeButton.disabled = true;
+
+    likeButton.disabled =
+      true;
+
 
     try {
 
-      const response = await fetch(
-        SUPABASE_URL +
-        "/rest/v1/rpc/hoodie_like",
-        {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify({
-            p_hoodie: HOODIE
-          })
-        }
-      );
+      const response =
+        await fetch(
+
+          SUPABASE_URL +
+          "/rest/v1/rpc/hoodie_like",
+
+          {
+            method: "POST",
+            headers: headers,
+
+            body: JSON.stringify({
+              p_hoodie: HOODIE
+            })
+          }
+        );
+
 
       if (!response.ok) {
+
         throw new Error(
           "Danke konnte nicht gespeichert werden."
         );
       }
 
-      const data = await response.json();
+
+      const data =
+        await response.json();
+
 
       showStats(data);
+
 
       localStorage.setItem(
         likeStorageKey,
         "yes"
       );
 
-      likeButton.classList.add("liked");
-      likeButton.disabled = true;
+
+      likeButton.classList.add(
+        "liked"
+      );
+
+      likeButton.disabled =
+        true;
+
 
     } catch (error) {
 
-      console.error("Like:", error);
+      console.error(
+        "Like:",
+        error
+      );
 
-      likeButton.disabled = false;
+      likeButton.disabled =
+        false;
     }
   }
 );
 
 
-/* Beim Öffnen +1 Aufruf */
+/* BEIM ÖFFNEN +1 AUFRUF */
 
 countView();
 
