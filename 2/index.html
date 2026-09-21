@@ -217,9 +217,7 @@ h1 {
 
   .message-end { margin-top: 23px; }
 
-  .stats {
-    gap: 8px;
-  }
+  .stats { gap: 8px; }
 
   .like-button,
   .views {
@@ -244,7 +242,6 @@ h1 {
   <div id="ps" class="ps"></div>
 
   <div class="stats">
-
     <button id="likeButton" class="like-button" type="button">
       ❤️ <span id="likes" class="stat-number">0</span> Danke
     </button>
@@ -252,7 +249,6 @@ h1 {
     <div class="views">
       👀 <span id="views" class="stat-number">0</span> Aufrufe
     </div>
-
   </div>
 
 </main>
@@ -272,6 +268,7 @@ fetch("./content.json?v=" + Date.now(), { cache: "no-store" })
     document.getElementById("greeting").textContent = data.greeting || "";
 
     const ps = document.getElementById("ps");
+    ps.innerHTML = "";
 
     if (data.ps) {
       const label = document.createElement("span");
@@ -309,6 +306,10 @@ const likesElement = document.getElementById("likes");
 const viewsElement = document.getElementById("views");
 const likeButton = document.getElementById("likeButton");
 
+let currentResetVersion = 0;
+
+
+/* Zahlen anzeigen + Like-Sperre prüfen */
 
 function showStats(data) {
   if (!data) return;
@@ -319,6 +320,21 @@ function showStats(data) {
 
   if (typeof data.views !== "undefined") {
     viewsElement.textContent = data.views;
+  }
+
+  if (typeof data.reset_version !== "undefined") {
+    currentResetVersion = data.reset_version;
+
+    const currentLikeKey =
+      HOODIE + "-liked-" + currentResetVersion;
+
+    if (localStorage.getItem(currentLikeKey) === "yes") {
+      likeButton.classList.add("liked");
+      likeButton.disabled = true;
+    } else {
+      likeButton.classList.remove("liked");
+      likeButton.disabled = false;
+    }
   }
 }
 
@@ -360,7 +376,7 @@ async function loadStats() {
       SUPABASE_URL +
       "/rest/v1/hoodie_stats?hoodie=eq." +
       HOODIE +
-      "&select=views,likes",
+      "&select=views,likes,reset_version",
       {
         headers: headers
       }
@@ -382,19 +398,12 @@ async function loadStats() {
 }
 
 
-/* Like-Status dieses Browsers */
-
-const likeStorageKey = HOODIE + "-liked";
-
-if (localStorage.getItem(likeStorageKey) === "yes") {
-  likeButton.classList.add("liked");
-  likeButton.disabled = true;
-}
-
-
 /* Danke / Like */
 
 likeButton.addEventListener("click", async function () {
+
+  const likeStorageKey =
+    HOODIE + "-liked-" + currentResetVersion;
 
   if (localStorage.getItem(likeStorageKey) === "yes") {
     return;
@@ -424,6 +433,7 @@ likeButton.addEventListener("click", async function () {
 
     localStorage.setItem(likeStorageKey, "yes");
     likeButton.classList.add("liked");
+    likeButton.disabled = true;
 
   } catch (error) {
     console.error("Like:", error);
@@ -432,7 +442,7 @@ likeButton.addEventListener("click", async function () {
 });
 
 
-/* Beim Öffnen der Seite +1 Aufruf */
+/* Beim Öffnen +1 Aufruf */
 
 countView();
 
