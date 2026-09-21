@@ -14,6 +14,7 @@
 :root {
   --accent-color: #F12643;
   --background-color: #050505;
+  --background-color-2: #321018;
   --card-color: #101010;
 }
 
@@ -29,12 +30,12 @@ body {
   background:
     radial-gradient(
       circle at 5% 10%,
-      color-mix(in srgb, var(--accent-color) 25%, transparent),
+      color-mix(in srgb, var(--background-color-2) 82%, transparent),
       transparent 32%
     ),
     radial-gradient(
       circle at 95% 90%,
-      color-mix(in srgb, var(--accent-color) 18%, transparent),
+      color-mix(in srgb, var(--background-color-2) 68%, transparent),
       transparent 34%
     ),
     var(--background-color);
@@ -83,23 +84,33 @@ body::before {
   overflow: hidden;
   text-align: center;
 
+  border: 1px solid transparent;
+  border-radius: 25px;
+
   background:
     linear-gradient(
       145deg,
-      color-mix(in srgb, var(--card-color) 94%, white 6%),
+      color-mix(in srgb, var(--card-color) 96%, white 4%),
       var(--card-color)
-    );
+    ) padding-box,
 
-  border:
-    1px solid
-    color-mix(in srgb, var(--accent-color) 35%, transparent);
-
-  border-radius: 25px;
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-color) 82%, transparent),
+      color-mix(in srgb, var(--accent-color) 28%, transparent) 48%,
+      color-mix(in srgb, var(--accent-color) 72%, transparent)
+    ) border-box;
 
   box-shadow:
-    0 24px 65px rgba(0,0,0,.65),
-    0 0 35px
-    color-mix(in srgb, var(--accent-color) 8%, transparent);
+    0 0 10px
+      color-mix(in srgb, var(--accent-color) 52%, transparent),
+    0 0 24px
+      color-mix(in srgb, var(--accent-color) 38%, transparent),
+    0 0 50px
+      color-mix(in srgb, var(--accent-color) 27%, transparent),
+    0 0 90px
+      color-mix(in srgb, var(--accent-color) 17%, transparent),
+    0 30px 72px rgba(0,0,0,.60);
 }
 
 .card::before {
@@ -269,6 +280,24 @@ h1 {
 .like-button {
   cursor: pointer;
   transition: .2s ease;
+
+  border-color: var(--accent-color);
+
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-color) 72%, #111 28%),
+      color-mix(in srgb, var(--accent-color) 48%, #111 52%)
+    );
+
+  color: #fff;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 10px
+      color-mix(in srgb, var(--accent-color) 38%, transparent),
+    0 0 22px
+      color-mix(in srgb, var(--accent-color) 22%, transparent);
 }
 
 .like-button:hover:not(:disabled) {
@@ -286,11 +315,20 @@ h1 {
   border-color: var(--accent-color);
 
   background:
-    color-mix(
-      in srgb,
-      var(--accent-color) 14%,
-      transparent
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-color) 72%, #111 28%),
+      color-mix(in srgb, var(--accent-color) 48%, #111 52%)
     );
+
+  color: #fff;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 10px
+      color-mix(in srgb, var(--accent-color) 38%, transparent),
+    0 0 22px
+      color-mix(in srgb, var(--accent-color) 22%, transparent);
 }
 
 .like-button:disabled {
@@ -746,6 +784,15 @@ async function loadContent() {
       root.style.setProperty(
         "--background-color",
         content.background_color
+      );
+    }
+
+
+    if (content.background_color_2) {
+
+      root.style.setProperty(
+        "--background-color-2",
+        content.background_color_2
       );
     }
 
