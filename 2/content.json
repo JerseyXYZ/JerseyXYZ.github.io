@@ -1,7 +1,12 @@
 {
   "headline": "🫵 AN DIE PERSON HINTER MIR:",
-  "title": "Das Leben ist zu kurz … ❤️🥂.",
-  "text": "Mach mehr von dem, was Dich glücklich macht. Lächle, hab Spaß und sei frei. ❤️ 🎂\nHabe Spaß und so weiter - sei nett zu Deinen Mittmenschen",
-  "greeting": "Freundliche Grüße, die Person vor Dir ✉️",
-  "ps": "So wie Du bist, bist Du genau richtig. ❤️ 😎"
+  "title": "Das Leben ist zu kurz …",
+  "text": "Mach mehr von dem, was Dich glücklich macht. Lächle, hab Spaß und sei frei. ❤️",
+  "greeting": "Freundliche Grüße, die Person vor Dir",
+  "ps": "So wie Du bist, bist Du genau richtig. ❤️",
+  "font": "modern",
+  "textColor": "#F5F5F5",
+  "accentColor": "#F12643",
+  "backgroundColor": "#050505",
+  "cardColor": "#101010"
 }
