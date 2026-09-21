@@ -639,6 +639,14 @@ button:disabled {
       </div>
 
       <div class="field">
+        <label>Hintergrundfarbe 2</label>
+        <div class="color-field">
+          <input id="backgroundColor2" type="color">
+          <input id="backgroundHex2" class="hex" type="text">
+        </div>
+      </div>
+
+      <div class="field">
         <label>Kartenfarbe</label>
         <div class="color-field">
           <input id="cardColor" type="color">
@@ -1092,6 +1100,12 @@ async function loadContent() {
     );
 
     setColor(
+      "backgroundColor2",
+      "backgroundHex2",
+      c.background_color_2 || "#321018"
+    );
+
+    setColor(
       "cardColor",
       "cardHex",
       c.card_color || "#101010"
@@ -1134,13 +1148,21 @@ function updatePreview() {
 
   const accent = document.getElementById("accentColor").value;
   const background = document.getElementById("backgroundColor").value;
+  const background2 = document.getElementById("backgroundColor2").value;
   const card = document.getElementById("cardColor").value;
 
   preview.style.setProperty("--preview-accent", accent);
 
   preview.style.background = card;
   preview.style.borderColor = accent + "70";
-  shell.style.background = background;
+  shell.style.background =
+    "radial-gradient(circle at 10% 10%, " +
+    background2 +
+    " 0%, transparent 42%), " +
+    "radial-gradient(circle at 90% 90%, " +
+    background2 +
+    " 0%, transparent 42%), " +
+    background;
 
   setPreviewText(
     "previewHeadline",
@@ -1223,6 +1245,7 @@ setupColor("greetingColor", "greetingHex");
 setupColor("psColor", "psHex");
 setupColor("accentColor", "accentHex");
 setupColor("backgroundColor", "backgroundHex");
+setupColor("backgroundColor2", "backgroundHex2");
 setupColor("cardColor", "cardHex");
 
 
@@ -1289,6 +1312,9 @@ saveButton.addEventListener("click", async function() {
 
     p_background_color:
       document.getElementById("backgroundColor").value,
+
+    p_background_color_2:
+      document.getElementById("backgroundColor2").value,
 
     p_card_color:
       document.getElementById("cardColor").value
