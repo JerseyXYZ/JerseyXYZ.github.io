@@ -5,270 +5,300 @@ content:
     path: 2/content.json
 
     fields:
+
+      # ─────────────────────────────
+      # KLEINE ÜBERSCHRIFT
+      # ─────────────────────────────
+
       - name: headline
-        label: Kleine Überschrift
+        label: "🟥 KLEINE ÜBERSCHRIFT – Text"
         type: string
 
       - name: headlineFont
-        label: Schrift – Kleine Überschrift
+        label: "↳ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: Modern – klar & schlicht
+              label: "Modern – klar & schlicht"
             - value: elegant
-              label: Elegant – fein & edel
+              label: "Elegant – fein & edel"
             - value: classic
-              label: Klassisch – Buchstil
+              label: "Klassisch – Buchstil"
             - value: handwritten
-              label: Handschrift – persönlich
+              label: "Handschrift – persönlich"
             - value: playful
-              label: Verspielt – locker
+              label: "Verspielt – locker"
 
       - name: headlineColor
-        label: Farbe – Kleine Überschrift
+        label: "↳ Farbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
             - value: "#F5F5F5"
-              label: Weiß
+              label: "🤍 Weiß"
             - value: "#B8B8B8"
-              label: Grau
+              label: "🩶 Grau"
+
+
+      # ─────────────────────────────
+      # GROSSE ÜBERSCHRIFT
+      # ─────────────────────────────
 
       - name: title
-        label: Große Überschrift
+        label: "⬜ GROSSE ÜBERSCHRIFT – Text"
         type: string
 
       - name: titleFont
-        label: Schrift – Große Überschrift
+        label: "↳ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: Modern – klar & schlicht
+              label: "Modern – klar & schlicht"
             - value: elegant
-              label: Elegant – fein & edel
+              label: "Elegant – fein & edel"
             - value: classic
-              label: Klassisch – Buchstil
+              label: "Klassisch – Buchstil"
             - value: handwritten
-              label: Handschrift – persönlich
+              label: "Handschrift – persönlich"
             - value: playful
-              label: Verspielt – locker
+              label: "Verspielt – locker"
 
       - name: titleColor
-        label: Farbe – Große Überschrift
+        label: "↳ Farbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
             - value: "#F5F5F5"
-              label: Weiß
+              label: "🤍 Weiß"
             - value: "#B8B8B8"
-              label: Grau
+              label: "🩶 Grau"
+
+
+      # ─────────────────────────────
+      # HAUPTTEXT
+      # ─────────────────────────────
 
       - name: text
-        label: Haupttext
+        label: "📝 HAUPTTEXT – Text"
         type: text
 
       - name: textFont
-        label: Schrift – Haupttext
+        label: "↳ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: Modern – klar & schlicht
+              label: "Modern – klar & schlicht"
             - value: elegant
-              label: Elegant – fein & edel
+              label: "Elegant – fein & edel"
             - value: classic
-              label: Klassisch – Buchstil
+              label: "Klassisch – Buchstil"
             - value: handwritten
-              label: Handschrift – persönlich
+              label: "Handschrift – persönlich"
             - value: playful
-              label: Verspielt – locker
+              label: "Verspielt – locker"
 
       - name: textColor
-        label: Farbe – Haupttext
+        label: "↳ Farbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
             - value: "#F5F5F5"
-              label: Weiß
+              label: "🤍 Weiß"
             - value: "#B8B8B8"
-              label: Grau
+              label: "🩶 Grau"
+
+
+      # ─────────────────────────────
+      # GRUSSZEILE
+      # ─────────────────────────────
 
       - name: greeting
-        label: Grußzeile
+        label: "👋 GRUSSZEILE – Text"
         type: string
 
       - name: greetingFont
-        label: Schrift – Grußzeile
+        label: "↳ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: Modern – klar & schlicht
+              label: "Modern – klar & schlicht"
             - value: elegant
-              label: Elegant – fein & edel
+              label: "Elegant – fein & edel"
             - value: classic
-              label: Klassisch – Buchstil
+              label: "Klassisch – Buchstil"
             - value: handwritten
-              label: Handschrift – persönlich
+              label: "Handschrift – persönlich"
             - value: playful
-              label: Verspielt – locker
+              label: "Verspielt – locker"
 
       - name: greetingColor
-        label: Farbe – Grußzeile
+        label: "↳ Farbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
             - value: "#F5F5F5"
-              label: Weiß
+              label: "🤍 Weiß"
             - value: "#B8B8B8"
-              label: Grau
+              label: "🩶 Grau"
+
+
+      # ─────────────────────────────
+      # PS
+      # ─────────────────────────────
 
       - name: ps
-        label: PS
+        label: "❤️ PS – Text"
         type: string
 
       - name: psFont
-        label: Schrift – PS
+        label: "↳ Schriftart"
         type: select
         options:
           values:
             - value: modern
-              label: Modern – klar & schlicht
+              label: "Modern – klar & schlicht"
             - value: elegant
-              label: Elegant – fein & edel
+              label: "Elegant – fein & edel"
             - value: classic
-              label: Klassisch – Buchstil
+              label: "Klassisch – Buchstil"
             - value: handwritten
-              label: Handschrift – persönlich
+              label: "Handschrift – persönlich"
             - value: playful
-              label: Verspielt – locker
+              label: "Verspielt – locker"
 
       - name: psColor
-        label: Farbe – PS
+        label: "↳ Farbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
             - value: "#F5F5F5"
-              label: Weiß
+              label: "🤍 Weiß"
             - value: "#B8B8B8"
-              label: Grau
+              label: "🩶 Grau"
+
+
+      # ─────────────────────────────
+      # SEITENDESIGN
+      # ─────────────────────────────
 
       - name: accentColor
-        label: Akzentfarbe
+        label: "🎨 SEITENDESIGN – Akzentfarbe"
         type: select
         options:
           values:
             - value: "#F12643"
-              label: Rot
+              label: "❤️ Rot"
             - value: "#FF4F8B"
-              label: Pink
+              label: "🩷 Pink"
             - value: "#B76CFF"
-              label: Lila
+              label: "💜 Lila"
             - value: "#4DA6FF"
-              label: Blau
+              label: "💙 Blau"
             - value: "#35D6D0"
-              label: Türkis
+              label: "🩵 Türkis"
             - value: "#D9B65B"
-              label: Gold
+              label: "💛 Gold"
 
       - name: backgroundColor
-        label: Seitenhintergrund
+        label: "↳ Seitenhintergrund"
         type: select
         options:
           values:
             - value: "#050505"
-              label: Schwarz
+              label: "🖤 Schwarz"
             - value: "#151515"
-              label: Anthrazit
+              label: "⬛ Anthrazit"
             - value: "#18070B"
-              label: Dunkelrot
+              label: "❤️ Dunkelrot"
             - value: "#130A18"
-              label: Dunkellila
+              label: "💜 Dunkellila"
             - value: "#07111C"
-              label: Dunkelblau
+              label: "💙 Dunkelblau"
             - value: "#071817"
-              label: Dunkeltürkis
+              label: "🩵 Dunkeltürkis"
             - value: "#F2F2F2"
-              label: Hell
+              label: "🤍 Hell"
 
       - name: cardColor
-        label: Kartenfarbe
+        label: "↳ Kartenfarbe"
         type: select
         options:
           values:
             - value: "#101010"
-              label: Schwarz
+              label: "🖤 Schwarz"
             - value: "#202020"
-              label: Anthrazit
+              label: "⬛ Anthrazit"
             - value: "#260A10"
-              label: Dunkelrot
+              label: "❤️ Dunkelrot"
             - value: "#211126"
-              label: Dunkellila
+              label: "💜 Dunkellila"
             - value: "#0D1A28"
-              label: Dunkelblau
+              label: "💙 Dunkelblau"
             - value: "#0B2422"
-              label: Dunkeltürkis
+              label: "🩵 Dunkeltürkis"
             - value: "#FFFFFF"
-              label: Weiß
+              label: "🤍 Weiß"
