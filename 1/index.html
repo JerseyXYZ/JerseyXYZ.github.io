@@ -28,6 +28,21 @@
    SEITE
    ========================= */
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050505;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity .22s ease;
+}
+
+body.page-ready::before {
+  opacity: 0;
+}
+
 body {
   margin: 0;
   min-height: 100svh;
@@ -1198,8 +1213,20 @@ document.getElementById(
 
 async function start() {
 
+  /*
+    Erst die gespeicherten Hoodie-1-Farben laden.
+    Bis dahin liegt eine neutrale dunkle Fläche
+    über der Seite – dadurch gibt es keinen
+    kurzen Farbblitz der Standardfarben mehr.
+  */
   await loadContent();
 
+  document.body.classList.add(
+    "page-ready"
+  );
+
+  /* Statistik danach laden – die Seite ist
+     zu diesem Zeitpunkt bereits sichtbar. */
   await registerView();
 }
 
