@@ -20,6 +20,8 @@
 
 body {
   margin: 0;
+  opacity: 0;
+  transition: opacity .22s ease;
   min-height: 100svh;
   padding: 22px 16px;
 
@@ -68,6 +70,10 @@ body::before {
     );
 }
 
+
+body.page-ready {
+  opacity: 1;
+}
 
 /* ==========================================
    KARTE
@@ -1121,8 +1127,13 @@ likeButton.addEventListener(
    START
    ========================================== */
 
-loadContent();
-countView();
+async function start() {
+  await loadContent();
+  document.body.classList.add("page-ready");
+  await countView();
+}
+
+start();
 
 </script>
 
