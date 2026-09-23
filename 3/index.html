@@ -30,6 +30,8 @@
 
 body {
   margin: 0;
+  opacity: 0;
+  transition: opacity .22s ease;
   min-height: 100svh;
 
   display: flex;
@@ -66,6 +68,11 @@ body {
     );
 
   background-attachment: fixed;
+}
+
+
+body.page-ready {
+  opacity: 1;
 }
 
 
@@ -456,6 +463,10 @@ body {
     font-size: .79rem;
   }
 }
+
+.is-empty {
+  display: none !important;
+}
 </style>
 </head>
 
@@ -528,7 +539,7 @@ body {
     >
       ❤️
       <span id="likes">0</span>
-      Danke
+      Gefällt mir
     </button>
 
 
@@ -646,6 +657,48 @@ function hexToRgba(hex, alpha) {
 
 
 /* =========================
+   LEERE BEREICHE AUTOMATISCH AUSBLENDEN
+   ========================= */
+
+function updateContentLayout() {
+  const headline = document.getElementById("headline");
+  const title = document.getElementById("title");
+  const bodyText = document.getElementById("bodyText");
+  const greeting = document.getElementById("greeting");
+  const ps = document.getElementById("ps");
+  const psText = document.getElementById("psText");
+  const lines = document.querySelectorAll(".line");
+
+  const hasText = (element) =>
+    element && element.textContent.trim().length > 0;
+
+  const hasHeadline = hasText(headline);
+  const hasTitle = hasText(title);
+  const hasBody = hasText(bodyText);
+  const hasGreeting = hasText(greeting);
+  const hasPs = hasText(psText);
+
+  headline.classList.toggle("is-empty", !hasHeadline);
+  title.classList.toggle("is-empty", !hasTitle);
+  bodyText.classList.toggle("is-empty", !hasBody);
+  greeting.classList.toggle("is-empty", !hasGreeting);
+  ps.classList.toggle("is-empty", !hasPs);
+
+  if (lines[0]) {
+    const before = hasHeadline;
+    const after = hasTitle || hasBody;
+    lines[0].classList.toggle("is-empty", !(before && after));
+  }
+
+  if (lines[1]) {
+    const before = hasHeadline || hasTitle || hasBody;
+    const after = hasGreeting || hasPs;
+    lines[1].classList.toggle("is-empty", !(before && after));
+  }
+}
+
+
+/* =========================
    INHALT LADEN
    ========================= */
 
@@ -691,49 +744,19 @@ async function loadContent() {
        TEXTE
        ===================== */
 
-    if (c.headline) {
-
-      document.getElementById(
-        "headline"
-      ).textContent =
-        c.headline;
-    }
+    document.getElementById("headline").textContent = c.headline || "";
 
 
-    if (c.title) {
-
-      document.getElementById(
-        "title"
-      ).textContent =
-        c.title;
-    }
+    document.getElementById("title").textContent = c.title || "";
 
 
-    if (c.body_text) {
-
-      document.getElementById(
-        "bodyText"
-      ).textContent =
-        c.body_text;
-    }
+    document.getElementById("bodyText").textContent = c.body_text || "";
 
 
-    if (c.greeting) {
-
-      document.getElementById(
-        "greeting"
-      ).textContent =
-        c.greeting;
-    }
+    document.getElementById("greeting").textContent = c.greeting || "";
 
 
-    if (c.ps) {
-
-      document.getElementById(
-        "psText"
-      ).textContent =
-        c.ps;
-    }
+    document.getElementById("psText").textContent = c.ps || "";
 
 
     /* =====================
@@ -1199,6 +1222,12 @@ document.getElementById(
 async function start() {
 
   await loadContent();
+
+  updateContentLayout();
+
+  document.body.classList.add(
+    "page-ready"
+  );
 
   await registerView();
 }
