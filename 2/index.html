@@ -440,6 +440,10 @@ h1 {
     padding: 9px 12px;
   }
 }
+
+.is-empty {
+  display: none !important;
+}
 </style>
 </head>
 
@@ -493,7 +497,7 @@ h1 {
       >
         0
       </span>
-      Danke
+      Gefällt mir
     </button>
 
 
@@ -592,6 +596,43 @@ function applyColor(
 
     element.style.color =
       color;
+  }
+}
+
+
+/* ==========================================
+   LEERE BEREICHE AUTOMATISCH AUSBLENDEN
+   ========================================== */
+
+function updateContentLayout() {
+  const headline = document.getElementById("headline");
+  const title = document.getElementById("title");
+  const bodyText = document.getElementById("text");
+  const greeting = document.getElementById("greeting");
+  const ps = document.getElementById("ps");
+  const messageEnd = document.querySelector(".message-end");
+
+  const hasText = (element) =>
+    element && element.textContent.trim().length > 0;
+
+  const hasHeadline = hasText(headline);
+  const hasTitle = hasText(title);
+  const hasBody = hasText(bodyText);
+  const hasGreeting = hasText(greeting);
+  const hasPs = hasText(ps);
+
+  headline.classList.toggle("is-empty", !hasHeadline);
+  title.classList.toggle("is-empty", !hasTitle);
+  bodyText.classList.toggle("is-empty", !hasBody);
+  greeting.classList.toggle("is-empty", !hasGreeting);
+  ps.classList.toggle("is-empty", !hasPs);
+
+  /* Der Strich zwischen Nachricht und Gruß/PS erscheint
+     nur, wenn auf beiden Seiten tatsächlich Inhalt steht. */
+  if (messageEnd) {
+    const before = hasHeadline || hasTitle || hasBody;
+    const after = hasGreeting || hasPs;
+    messageEnd.classList.toggle("is-empty", !(before && after));
   }
 }
 
@@ -811,6 +852,8 @@ async function loadContent() {
       );
     }
 
+
+    updateContentLayout();
 
   } catch (error) {
 
@@ -1129,6 +1172,7 @@ likeButton.addEventListener(
 
 async function start() {
   await loadContent();
+  updateContentLayout();
   document.body.classList.add("page-ready");
   await countView();
 }
